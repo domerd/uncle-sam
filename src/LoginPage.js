@@ -3,13 +3,12 @@
  */
 
 import React from 'react';
-import logo from './logo.svg';
-import LoginForm from './Login/LoginForm';
+    import LoginForm from './Login/LoginForm';
 import './LoginPage.css';
 import {useHistory} from "react-router-dom";
 import {addJWTToHeader} from "./Login/actions";
 
-export const JWT_TOKEN_KEY = 'UNCLE_SAME_JWT_TOKEN';
+export const JWT_TOKEN_KEY = 'UNCLE_SAM_JWT_TOKEN';
 
 const LoginPage = ({ setLogged }) => {
     const history = useHistory();
@@ -22,7 +21,7 @@ const LoginPage = ({ setLogged }) => {
     };
 
     return <div className="login-page">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={'/farmer.png'} className="App-logo" alt="logo" />
         <LoginForm onLoginSuccess={onLoginSuccess} />
     </div>
 };

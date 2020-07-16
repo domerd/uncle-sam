@@ -23,6 +23,7 @@ def protected():
 
 @app.route('/api/token/verify', methods=['POST'])
 def verify_token():
+    #import pdb; pdb.set_trace()
     verify_fresh_jwt_in_request()
     return jsonify(valid=True), 200
 

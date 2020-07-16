@@ -11,20 +11,20 @@ const LoginForm = ({ onLoginSuccess }) => {
     const [form] = Form.useForm();
 
     const submit = () => {
-        const { username, password } = form.getFieldsValue();
-
-        login({username, password}).then(({ data }) => {
-            console.log('Login success');
-            onLoginSuccess(data.access_token);
-        }).catch(err => console.log('Failed login', err));
+        form.validateFields().then(({ username, password }) => {
+            login({username, password}).then(({ data }) => {
+                console.log('Login success');
+                onLoginSuccess(data.access_token);
+            }).catch(err => console.log('Failed login', err));
+        });
     };
 
     return <Form form={form} onFinish={submit} className="login-form">
-        <Form.Item required name="username">
-            <Input placeholder="Please fill in the username" />
+        <Form.Item name="username" rules={[{ required: true, message: 'Please fill in your Username!' }]}>
+            <Input placeholder="Username" />
         </Form.Item>
-        <Form.Item required name="password">
-            <Input placeholder="Please fill in the password" />
+        <Form.Item name="password"  rules={[{ required: true, message: 'Please fill in your Password!' }]}>
+            <Input placeholder="Password" />
         </Form.Item>
         <Button onClick={submit}>
             Login!

@@ -15,5 +15,7 @@ export const login = ({username, password}) => {
 };
 
 export const validateToken = (jwtToken) => {
-    return axios.post('/api/token/verify', {token: jwtToken});
+    return axios.post('/api/token/verify', {}, {
+        headers: {'Authorization': `Bearer ${jwtToken}`}
+    });
 };

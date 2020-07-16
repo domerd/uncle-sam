@@ -6,7 +6,7 @@ import LoginPage, {JWT_TOKEN_KEY} from "./LoginPage";
 import './App.css';
 import {useHistory} from "react-router";
 import 'antd/dist/antd.css';
-import {addJWTToHeader} from "./Login/actions";
+import {addJWTToHeader, validateToken} from "./Login/actions";
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -24,9 +24,10 @@ const App = () => {
             redirectToLogin();
         }
 
-        // TODO: check if token is refreshed
-        addJWTToHeader(jwtToken);
-        setLogged(true);
+        validateToken(jwtToken).then(() => {
+            addJWTToHeader(jwtToken);
+            setLogged(true);}
+        ).catch(redirectToLogin);
     };
 
     useEffect(() => {
