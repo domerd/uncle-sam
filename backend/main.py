@@ -20,7 +20,7 @@ def protected():
     return '%s' % get_jwt_identity()
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/api/login', methods=['POST'])
 def login():
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
