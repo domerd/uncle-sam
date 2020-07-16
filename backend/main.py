@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
 from flask_jwt_extended import (
     JWTManager, jwt_required, create_access_token,
-    get_jwt_identity
+    get_jwt_identity, verify_fresh_jwt_in_request
 )
+from datetime import timedelta
 
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this!
@@ -14,10 +15,16 @@ def alive():
     return 'I am alive!'
 
 
-@app.route('/protected')
+@app.route('/api/farmers')
 @jwt_required
 def protected():
-    return '%s' % get_jwt_identity()
+    return jsonify(['yossi', 'kobi'])
+
+
+@app.route('/api/token/verify', methods=['POST'])
+def verify_token():
+    verify_fresh_jwt_in_request()
+    return jsonify(valid=True), 200
 
 
 @app.route('/api/login', methods=['POST'])
@@ -36,7 +43,7 @@ def login():
         return jsonify({"msg": "Bad username or password"}), 401
 
     # Identity can be any data that is json serializable
-    access_token = create_access_token(identity=username)
+    access_token = create_access_token(identity=username, expires_delta=timedelta(seconds=10, days=1))
     return jsonify(access_token=access_token), 200
 
 
