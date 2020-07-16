@@ -7,6 +7,7 @@ import './App.css';
 import {useHistory} from "react-router";
 import 'antd/dist/antd.css';
 import {addJWTToHeader, validateToken} from "./Login/actions";
+import RoadsStore from "./RoadsStore";
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -23,11 +24,11 @@ const App = () => {
         if (!jwtToken) {
             redirectToLogin();
         }
-
-        validateToken(jwtToken).then(() => {
-            addJWTToHeader(jwtToken);
-            setLogged(true);}
-        ).catch(redirectToLogin);
+        setLogged(true);
+        // validateToken(jwtToken).then(() => {
+        //     addJWTToHeader(jwtToken);
+        //     setLogged(true);}
+        // ).catch(redirectToLogin);
     };
 
     useEffect(() => {
@@ -38,9 +39,9 @@ const App = () => {
 
   return (
       <Switch>
-         {logged && <div>
+         {logged && <RoadsStore>
              <Route exact path="/homepage" component={HomePage} />
-         </div>}
+         </RoadsStore>}
          <Route exact path="/login" render={renderLogin} />
          <Redirect to='/homepage' from='/' />
       </Switch>

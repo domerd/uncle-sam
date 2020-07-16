@@ -2,12 +2,16 @@
  * Created by omerdoron on 16/07/2020.
  */
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import logo from './logo.svg';
 import {getFarmers} from "./actions";
+import {RoadsStoreContext} from "./RoadsStore";
 
 
 const HomePage = () => {
+
+    const { roads } = useContext(RoadsStoreContext);
+    console.log('In homepage', roads)
 
     useEffect(() => {
         getFarmers();
