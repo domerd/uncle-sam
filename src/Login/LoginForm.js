@@ -5,7 +5,7 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
 import { login } from './actions';
-import './LoginForm.css';
+import './LoginForm.sass';
 
 const LoginForm = ({ onLoginSuccess }) => {
     const [form] = Form.useForm();
