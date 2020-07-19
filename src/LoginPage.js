@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 import LoginForm from './Login/LoginForm';
 import { addJWTToHeader } from './Login/actions';
-import './LoginPage.css';
+import './LoginPage.sass';
 
 export const JWT_TOKEN_KEY = 'UNCLE_SAM_JWT_TOKEN';
 

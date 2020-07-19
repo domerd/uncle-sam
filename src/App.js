@@ -7,7 +7,7 @@ import RoadsStore from './RoadsStore';
 import LoginPage, { JWT_TOKEN_KEY } from './LoginPage';
 import { addJWTToHeader, validateToken } from './Login/actions';
 import 'antd/dist/antd.css';
-import './App.css';
+import './App.sass';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
