@@ -10,6 +10,7 @@ import { addJWTToHeader, validateToken } from './Login/actions';
 import 'antd/dist/antd.css';
 import './App.sass';
 import CountryStore from './CountryStore';
+import FarmerStore from './FarmerStore';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -44,9 +45,11 @@ const App = () => {
             {logged && (
                 <UserStore>
                     <CountryStore>
-                        <RoadsStore>
-                            <Route exact path="/homepage" component={HomePage} />
-                        </RoadsStore>
+                        <FarmerStore>
+                            <RoadsStore>
+                                <Route exact path="/homepage" component={HomePage} />
+                            </RoadsStore>
+                        </FarmerStore>
                     </CountryStore>
                 </UserStore>
             )}

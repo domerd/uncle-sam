@@ -19,7 +19,55 @@ def alive():
 @app.route('/api/farmers')
 @jwt_required
 def protected():
-    return jsonify(['yossi', 'kobi'])
+    return jsonify([
+        {
+            'name': 'Shlomi\'s Oranges',
+            'id': 1,
+            'size': 40,
+            'country': '1',
+        },
+        {
+            'name': 'Solomon and Sons',
+            'id': 2,
+            'size': 35,
+            'country': '1',
+        },
+        {
+            'name': 'Banana Farm',
+            'id': 3,
+            'size': 55,
+            'country': '1',
+        },
+        {
+            'name': 'Joe Jr Juices',
+            'id': 4,
+            'size': 23,
+            'country': '2',
+        },
+        {
+            'name': 'Lincoln Peaches',
+            'id': 5,
+            'size': 78,
+            'country': '2',
+        },{
+            'name': 'God save the Queen',
+            'id': 6,
+            'size': 154,
+            'country': '3',
+        },
+        {
+            'name': 'Lord of Fruit',
+            'id': 7,
+            'size': 256,
+            'country': '3',
+        },
+        {
+            'name': 'Franque the Ice',
+            'id': 8,
+            'size': 58,
+            'country': '4',
+        },
+    ])
 
 
 @app.route('/api/countries')

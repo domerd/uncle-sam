@@ -43,7 +43,7 @@ const ConfigModal = () => {
                         <Form.Item name="country" label="Default Country">
                             <Select>
                                 {!_.isEmpty(countries)
-                && _.map(countries, (country) => (
+                && _.map(_.sortBy(countries, 'name'), (country) => (
                     <Select.Option value={country.country_id}>
                         {country.name}
                     </Select.Option>
