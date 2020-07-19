@@ -4,7 +4,6 @@
 
 import axios from 'axios';
 
-export const getFarmers = () => {
-    console.log('Getting Farmers');
-    return axios.get('/api/farmers');
-};
+export const getFarmers = () => axios.get('/api/farmers');
+
+export const getCountries = () => axios.get('/api/countries');

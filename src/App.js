@@ -3,11 +3,13 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 import HomePage from './HomePage';
+import UserStore from './UserStore';
 import RoadsStore from './RoadsStore';
 import LoginPage, { JWT_TOKEN_KEY } from './LoginPage';
 import { addJWTToHeader, validateToken } from './Login/actions';
 import 'antd/dist/antd.css';
 import './App.sass';
+import CountryStore from './CountryStore';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -40,9 +42,13 @@ const App = () => {
     return (
         <Switch>
             {logged && (
-                <RoadsStore>
-                    <Route exact path="/homepage" component={HomePage} />
-                </RoadsStore>
+                <UserStore>
+                    <CountryStore>
+                        <RoadsStore>
+                            <Route exact path="/homepage" component={HomePage} />
+                        </RoadsStore>
+                    </CountryStore>
+                </UserStore>
             )}
             <Route exact path="/login" render={renderLogin} />
             <Redirect to="/homepage" from="/" />
