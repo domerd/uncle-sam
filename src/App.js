@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
@@ -14,11 +14,11 @@ const App = () => {
 
     const history = useHistory();
 
-    const redirectToLogin = () => {
+    const redirectToLogin = useCallback(() => {
         history.push('/login');
-    };
+    }, [history]);
 
-    const checkLoggedIn = () => {
+    const checkLoggedIn = useCallback(() => {
         const jwtToken = localStorage.getItem(JWT_TOKEN_KEY);
 
         if (!jwtToken) {
@@ -29,11 +29,11 @@ const App = () => {
             addJWTToHeader(jwtToken);
             setLogged(true);
         }).catch(redirectToLogin);
-    };
+    }, [redirectToLogin]);
 
     useEffect(() => {
         checkLoggedIn();
-    }, []);
+    }, [checkLoggedIn]);
 
     const renderLogin = (...props) => <LoginPage {...props} setLogged={setLogged} />;
 
