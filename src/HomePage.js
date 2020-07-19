@@ -21,7 +21,10 @@ const HomePage = () => {
     return (
         <div className="homepage">
             <ConfigModal />
-            Here you can config all the deliveries in {country}
+            <div id="country text">
+                <div id="a"  style={{ display: 'inline'}}>Here you can config all the deliveries FROM </div>
+                <div id="b"  style={{ display: 'inline', color: 'red'}}>{country}</div>
+            </div>
             <FarmerTable />
         </div>
     );

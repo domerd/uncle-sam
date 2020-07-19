@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Table } from 'antd';
 import './FarmerTable.sass';
 import { FarmerStoreContext } from './FarmerStore';
+import PathForm from "./PathForm";
 
 const columns = [
     {
@@ -19,6 +20,12 @@ const columns = [
         dataIndex: 'size',
         key: 'size',
         render: (text) => `${text} Kilograms`,
+    },
+    {
+        title: 'Path',
+        dataIndex: 'path',
+        key: 'path',
+        render: () => <PathForm />,
     },
 ];
 
