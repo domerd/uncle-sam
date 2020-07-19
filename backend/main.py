@@ -4,6 +4,8 @@ from flask_jwt_extended import (
     verify_jwt_in_request
 )
 
+from datetime import timedelta
+
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this!
 jwt = JWTManager(app)
@@ -18,6 +20,29 @@ def alive():
 @jwt_required
 def protected():
     return jsonify(['yossi', 'kobi'])
+
+
+@app.route('/api/countries')
+@jwt_required
+def countries():
+    return jsonify([
+        {
+            'name': 'Israel',
+            'country_id': '1'
+        },
+        {
+            'name': 'United States',
+            'country_id': '2'
+        },
+        {
+            'name': 'United Kingdom',
+            'country_id': '3'
+        },
+        {
+            'name': 'Canada',
+            'country_id': '4'
+        }
+    ])
 
 
 @app.route('/api/token/verify', methods=['POST'])
@@ -42,7 +67,7 @@ def login():
         return jsonify({"msg": "Bad username or password"}), 401
 
     # Identity can be any data that is json serializable
-    access_token = create_access_token(identity=username)
+    access_token = create_access_token(identity=username, expires_delta=timedelta(days=7))
     return jsonify(access_token=access_token), 200
 
 
