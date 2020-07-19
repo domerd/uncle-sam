@@ -8,6 +8,7 @@ import { getFarmers } from './actions';
 import ConfigModal from './ConfigModal';
 import { CountryStoreContext } from './CountryStore';
 import './HomePage.sass';
+import FarmerTable from './FarmerTable';
 
 const HomePage = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
@@ -21,7 +22,7 @@ const HomePage = () => {
         <div className="homepage">
             <ConfigModal />
             Here you can config all the deliveries in {country}
-            <img src={logo} className="App-logo" alt="logo" />
+            <FarmerTable />
         </div>
     );
 };
