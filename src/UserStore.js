@@ -21,7 +21,7 @@ const UserStore = ({ children }) => {
             setDefaultCountry(df);
         }
         setLoaded(true);
-    }, [])
+    }, []);
 
     return (
         <UserStoreContext.Provider value={{ defaultCountry, setDefaultCountry }}>
