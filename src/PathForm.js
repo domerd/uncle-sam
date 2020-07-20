@@ -13,20 +13,20 @@ import _ from 'lodash';
 const {Option} = Select;
 
 
-function Child({color, source, options, pstate}) {
-    const {edges, setEdges} = pstate;
-    return <Select style={{width: 120, color: color, fontWeight: 'bold'}} onChange={(value) => {
-        console.log(`selected ${value}`);
-        setEdges([...edges, value]);
-    }}>
+function RoadSelector({color, source, options, pstate}) {
+    const {pathRoads, setPathRoads} = pstate;
+    return <Select style={{width: 120, color: color, fontWeight: 'bold'}}
+                   onChange={(value) => {
+                       setPathRoads([...pathRoads, value]);
+                   }}>
         {options.map(i => <Option key={i} value={i}>{i}</Option>)}
     </Select>
 }
 
 
 const PathForm = () => {
-    const {roads} = useContext(RoadsStoreContext);
-    let [edges, setEdges] = useState([64]);
+    const {allRoads} = useContext(RoadsStoreContext);
+    let [pathRoads, setPathRoads] = useState([64]);
     let [homeEnding, setHomeEnding] = useState(false);
 
     useEffect(() => {
@@ -34,25 +34,26 @@ const PathForm = () => {
     }, []);
 
     useEffect(() => {
-        if (_.isEqual(roads[edges[edges.length - 1]], ['HOME'])) {
+        if (_.isEqual(allRoads[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
         }
-    }, [edges]);
+    }, [pathRoads]);
 
     return (
         <div>
             <CloudFilled className={'Element'}/>
-            {edges.map(i =>
+            {pathRoads.map(i =>
                 <div className={'Element'}>
                     <ArrowRightOutlined className={'Element'}/>
-                    {!_.isEqual(roads[i], ['HOME']) ?
-                        <Child key={i}
-                               color={homeEnding ? 'green' : 'black'}
-                               options={roads[i]}
-                               pstate={{edges, setEdges}}/>
+                    {!_.isEqual(allRoads[i], ['HOME']) ?
+                        <RoadSelector key={i}
+                                      color={homeEnding ? 'LawnGreen' : 'black'}
+                                      options={allRoads[i]}
+                                      pstate={{pathRoads, setPathRoads}}/>
                         : <div className={'Element'}>
                             <HomeFilled/>
-                            <Button className={'Element'} onClick={() => console.log(edges)} type="primary">send</Button>
+                            <Button className={'Element'} onClick={() => console.log(pathRoads)}
+                                    type="primary">send</Button>
                         </div>
                     }
                 </div>)

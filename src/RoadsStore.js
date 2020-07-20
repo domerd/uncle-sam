@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 export const RoadsStoreContext = React.createContext();
 
 const RoadsStore = ({ children }) => {
-    const [roads, setRoads] = useState(
+    const [allRoads, setAllRoads] = useState(
         {
                 2: ['HOME'],
                 3: ['HOME'],
@@ -111,7 +111,7 @@ const RoadsStore = ({ children }) => {
         }
     );
 
-    return <RoadsStoreContext.Provider value={{ roads }}>
+    return <RoadsStoreContext.Provider value={{ allRoads }}>
         {children}
     </RoadsStoreContext.Provider>
 };
