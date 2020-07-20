@@ -6,7 +6,7 @@ import { Button, Layout, Popover } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 import HomePage from './HomePage';
 import UserStore from './UserStore';
-import RoadsStore from './RoadsStore';
+import RoadsStore from './Roads/RoadsStore';
 import LoginPage, { JWT_TOKEN_KEY } from './LoginPage';
 import { addJWTToHeader, validateToken } from './Login/actions';
 import 'antd/dist/antd.css';
