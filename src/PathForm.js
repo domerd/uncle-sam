@@ -42,6 +42,10 @@ const PathForm = ({ sourceFarmer }) => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
             setResult({ ...result, [sourceFarmer]: pathRoads.slice(1) });
+        } else {
+            const newResult = { ...result };
+            delete newResult[sourceFarmer];
+            setResult(newResult);
         }
     }, [pathRoads]);
 
