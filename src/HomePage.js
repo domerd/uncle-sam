@@ -34,7 +34,7 @@ const HomePage = () => {
             <div className="county-container">
                 <RoadStatusSection />
                 <FarmerTable />
-                <ReactJson country={country} name="Paths" theme="monokai" src={result} />
+                <ReactJson style={{ padding: 50 }} country={country} name="Result" theme="monokai" src={result} />
             </div>
         </div>
     );
