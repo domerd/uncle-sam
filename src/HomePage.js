@@ -3,17 +3,19 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
+import ReactJson from 'react-json-view';
 import ConfigModal from './ConfigModal';
 import { CountryStoreContext } from './CountryStore';
+import { ResultStoreContext } from './ResultStore';
+
 import './HomePage.sass';
 import FarmerTable from './FarmerTable';
 import RoadStatus from './RoadStatus';
-import ReactJson from 'react-json-view';
 
 const HomePage = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
     const [country, setCountry] = useState(undefined);
-    const [result, setResult] = useState({});
+    const { result } = useContext(ResultStoreContext);
 
     useEffect(() => {
         setCountry(getDefaultCountryName());
@@ -31,7 +33,7 @@ const HomePage = () => {
             </div>
             <div className="county-container">
                 <RoadStatus />
-                <FarmerTable resultState={{ result, setResult }} />
+                <FarmerTable />
                 <ReactJson country={country} name="Paths" theme="monokai" src={result} />
             </div>
         </div>

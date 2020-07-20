@@ -14,6 +14,7 @@ import './App.sass';
 import CountryStore from './CountryStore';
 import FarmerStore from './FarmerStore';
 import AdjacencyListStore from './AdjacencyListStore';
+import ResultStore from './ResultStore';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -25,6 +26,7 @@ const App = () => {
     }, [history]);
 
     const checkLoggedIn = useCallback(() => {
+        // eslint-disable-next-line no-undef
         const jwtToken = localStorage.getItem(JWT_TOKEN_KEY);
 
         if (!jwtToken) {
@@ -48,6 +50,7 @@ const App = () => {
             <Button
                 icon={<LogoutOutlined />}
                 onClick={() => {
+                    // eslint-disable-next-line no-undef
                     localStorage.removeItem(JWT_TOKEN_KEY);
                     setLogged(false);
                     redirectToLogin();
@@ -72,7 +75,9 @@ const App = () => {
                                 <FarmerStore>
                                     <AdjacencyListStore>
                                         <RoadsStore>
-                                            <Route exact path="/homepage" component={HomePage} />
+                                            <ResultStore>
+                                                <Route exact path="/homepage" component={HomePage} />
+                                            </ResultStore>
                                         </RoadsStore>
                                     </AdjacencyListStore>
                                 </FarmerStore>
