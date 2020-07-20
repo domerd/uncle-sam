@@ -2,48 +2,54 @@
  * Created by omerdoron on 16/07/2020.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import _ from 'lodash';
+import { ResultStoreContext } from '../ResultStore';
+import { FarmerStoreContext } from '../FarmerStore';
 
 export const RoadsStoreContext = React.createContext();
 
 const RoadsStore = ({ children }) => {
     const [roads, setRoads] = useState([
         {
-            name: 'Highway 6',
-            weight: 15,
-            max_weight: 20,
+            name: 6,
+            max_weight: 70,
             toll: true,
         },
         {
-            name: 'Highway 2',
-            weight: 21,
-            max_weight: 25,
+            name: 2,
+            max_weight: 60,
             toll: true,
         },
         {
-            name: 'Highway 1',
-            weight: 106,
+            name: 1,
             max_weight: 100,
             toll: true,
         },
         {
-            name: 'Highway 4',
-            weight: 12,
+            name: 4,
             max_weight: 75,
             toll: true,
         },
         {
-            name: 'Highway 5',
-            weight: 17,
+            name: 5,
             toll: false,
         },
         {
-            name: 'Highway 90',
-            weight: 20,
+            name: 90,
             toll: false,
         },
     ]);
+
+    const { result } = useContext(ResultStoreContext);
+    const { getDeliveryWeightById } = useContext(FarmerStoreContext);
+
+    const getRoadWeight = (name) => _.reduce(result, (sum, paths, deliveryId) => {
+        if (_.includes(paths, name)) {
+            return sum + getDeliveryWeightById(Number.parseInt(deliveryId));
+        }
+        return sum;
+    }, 0);
 
     const changeRoadToToll = (name, max_weight) => {
         const newRoads = _.map(roads, (road) => {
@@ -56,7 +62,7 @@ const RoadsStore = ({ children }) => {
     };
 
     return (
-        <RoadsStoreContext.Provider value={{ roads, changeRoadToToll }}>
+        <RoadsStoreContext.Provider value={{ roads, changeRoadToToll, getRoadWeight }}>
             {children}
         </RoadsStoreContext.Provider>
     );

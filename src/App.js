@@ -74,11 +74,11 @@ const App = () => {
                             <CountryStore>
                                 <FarmerStore>
                                     <AdjacencyListStore>
-                                        <RoadsStore>
-                                            <ResultStore>
+                                        <ResultStore>
+                                            <RoadsStore>
                                                 <Route exact path="/homepage" component={HomePage} />
-                                            </ResultStore>
-                                        </RoadsStore>
+                                            </RoadsStore>
+                                        </ResultStore>
                                     </AdjacencyListStore>
                                 </FarmerStore>
                             </CountryStore>
