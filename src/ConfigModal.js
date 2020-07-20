@@ -29,7 +29,7 @@ const ConfigModal = () => {
 
     return (
         <>
-            <Button icon={<SettingOutlined />} onClick={openModal} />
+            <Button className="config-modal-button" icon={<SettingOutlined />} onClick={openModal} />
             {modalOpen && (
                 <Modal
                     visible

@@ -9,6 +9,7 @@ import ConfigModal from './ConfigModal';
 import { CountryStoreContext } from './CountryStore';
 import './HomePage.sass';
 import FarmerTable from './FarmerTable';
+import RoadStatus from './RoadStatus';
 
 const HomePage = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
@@ -20,9 +21,14 @@ const HomePage = () => {
 
     return (
         <div className="homepage">
-            <ConfigModal />
-            Here you can config all the deliveries in {country}
+            <div className="config-line">
+                <ConfigModal />
+                <p>
+                    Here you can config all the deliveries in {country}
+                </p>
+            </div>
             <FarmerTable />
+            <RoadStatus />
         </div>
     );
 };

@@ -8,11 +8,28 @@ import React, {useState} from 'react';
 export const RoadsStoreContext = React.createContext();
 
 const RoadsStore = ({ children }) => {
-    const [roads, setRoads] = useState({
-        2: 'Road 2',
-        4: 'Road 4',
-        5: 'Road 5'
-    });
+    const [roads, setRoads] = useState([
+        {
+            name: 'Highway 6',
+            weight: 15,
+            max_weight: 20,
+        },
+        {
+            name: 'Highway 2',
+            weight: 16,
+            max_weight: 25,
+        },
+        {
+            name: 'Highway 1',
+            weight: 97,
+            max_weight: 100,
+        },
+        {
+            name: 'Highway 4',
+            weight: 12,
+            max_weight: 75,
+        },
+    ]);
 
     return <RoadsStoreContext.Provider value={{ roads }}>
         {children}
