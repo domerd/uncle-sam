@@ -1,31 +1,45 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Table } from 'antd';
+import { Input, Table } from 'antd';
 import './FarmerTable.sass';
 import { FarmerStoreContext } from './FarmerStore';
 import PathForm from './PathForm';
+import { ResultStoreContext } from './ResultStore';
 
 const FarmerTable = () => {
     const { getDefaultCountryFarmers } = useContext(FarmerStoreContext);
+    const { result, setResult } = useContext(ResultStoreContext);
     const [farmers, setFarmers] = useState([]);
 
     const columns = [
-        {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-        },
         {
             title: 'ID',
             dataIndex: 'id',
             key: 'id',
         },
         {
-            title: 'Source Farmer',
+            title: 'Delivery Name',
+            dataIndex: 'name',
+            key: 'name',
+            render: (text, record) => (
+                <Input
+                    key={record.id}
+                    defaultValue={text}
+                    placeholder="Delivery name"
+                    onChange={(e) => {
+                        const newResult = { ...result };
+                        newResult[record.id] = { ...newResult[record.id], name: e.target.value };
+                        setResult(newResult);
+                    }}
+                />
+            ),
+        },
+        {
+            title: 'Source Farmer ID',
             dataIndex: 'source',
             key: 'source',
         },
         {
-            title: 'Size (in Kgs)',
+            title: 'Size [kg/s]',
             dataIndex: 'size',
             key: 'size',
         },
@@ -38,7 +52,6 @@ const FarmerTable = () => {
                 <PathForm
                     deliveryId={record.id}
                     sourceFarmer={record.source}
-                    key={record.id}
                 />
             ),
         },
