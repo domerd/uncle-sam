@@ -2,8 +2,7 @@
  * Created by omerdoron on 16/07/2020.
  */
 
-
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 export const RoadsStoreContext = React.createContext();
 
@@ -40,10 +39,11 @@ const RoadsStore = ({ children }) => {
         },
     ]);
 
-    return <RoadsStoreContext.Provider value={{ roads }}>
-        {children}
-    </RoadsStoreContext.Provider>
+    return (
+        <RoadsStoreContext.Provider value={{ roads }}>
+            {children}
+        </RoadsStoreContext.Provider>
+    );
 };
 
 export default RoadsStore;
-

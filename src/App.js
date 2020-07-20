@@ -1,19 +1,19 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
-import {useHistory} from 'react-router';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
-import {Button, Layout, Popover} from 'antd';
-import {LogoutOutlined} from '@ant-design/icons';
+import { Button, Layout, Popover } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
 import HomePage from './HomePage';
 import UserStore from './UserStore';
 import RoadsStore from './RoadsStore';
-import LoginPage, {JWT_TOKEN_KEY} from './LoginPage';
-import {addJWTToHeader, validateToken} from './Login/actions';
+import LoginPage, { JWT_TOKEN_KEY } from './LoginPage';
+import { addJWTToHeader, validateToken } from './Login/actions';
 import 'antd/dist/antd.css';
 import './App.sass';
 import CountryStore from './CountryStore';
 import FarmerStore from './FarmerStore';
-import AdjacencyListStore from "./AdjacencyListStore";
+import AdjacencyListStore from './AdjacencyListStore';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -41,16 +41,18 @@ const App = () => {
         checkLoggedIn();
     }, [checkLoggedIn]);
 
-    const renderLogin = (...props) => <LoginPage {...props} setLogged={setLogged}/>;
+    const renderLogin = (...props) => <LoginPage {...props} setLogged={setLogged} />;
 
     const LogOff = () => (
         <Popover content="Log Off" className="log-off-button" placement="bottomRight">
             <Button
-                icon={<LogoutOutlined/>} onClick={() => {
-                localStorage.removeItem(JWT_TOKEN_KEY);
-                setLogged(false);
-                redirectToLogin();
-            }} shape="circle"
+                icon={<LogoutOutlined />}
+                onClick={() => {
+                    localStorage.removeItem(JWT_TOKEN_KEY);
+                    setLogged(false);
+                    redirectToLogin();
+                }}
+                shape="circle"
             />
         </Popover>
     );
@@ -60,9 +62,9 @@ const App = () => {
             {logged && (
                 <Layout>
                     <Layout.Header>
-                        <img src="/farmer.png" className="header-logo" alt="logo"/>
+                        <img src="/farmer.png" className="header-logo" alt="logo" />
                         <p className="header-app-name">Uncle Sam</p>
-                        <LogOff/>
+                        <LogOff />
                     </Layout.Header>
                     <Layout.Content>
                         <UserStore>
@@ -70,7 +72,7 @@ const App = () => {
                                 <FarmerStore>
                                     <AdjacencyListStore>
                                         <RoadsStore>
-                                            <Route exact path="/homepage" component={HomePage}/>
+                                            <Route exact path="/homepage" component={HomePage} />
                                         </RoadsStore>
                                     </AdjacencyListStore>
                                 </FarmerStore>
@@ -79,8 +81,8 @@ const App = () => {
                     </Layout.Content>
                 </Layout>
             )}
-            <Route exact path="/login" render={renderLogin}/>
-            <Redirect to="/homepage" from="/"/>
+            <Route exact path="/login" render={renderLogin} />
+            <Redirect to="/homepage" from="/" />
         </Switch>
     );
 };

@@ -39,7 +39,7 @@ const ConfigModal = () => {
                     onOk={saveChanges}
                     onCancel={closeModal}
                 >
-                    <Form form={form} initialValues={{country: defaultCountry}}>
+                    <Form form={form} initialValues={{ country: defaultCountry }}>
                         <Form.Item name="country" label="Default Country">
                             <Select>
                                 {!_.isEmpty(countries)

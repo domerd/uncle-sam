@@ -1,14 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Table} from 'antd';
+import React, { useContext, useEffect, useState } from 'react';
+import { Table } from 'antd';
 import './FarmerTable.sass';
-import {FarmerStoreContext} from './FarmerStore';
-import PathForm from "./PathForm";
+import { FarmerStoreContext } from './FarmerStore';
+import PathForm from './PathForm';
 
-
-const FarmerTable = ({resultState}) => {
-    const {getDefaultCountryFarmers} = useContext(FarmerStoreContext);
+const FarmerTable = ({ resultState }) => {
+    const { getDefaultCountryFarmers } = useContext(FarmerStoreContext);
     const [farmers, setFarmers] = useState([]);
-    const {result, setResult} = resultState;
+    const { result, setResult } = resultState;
 
     const columns = [
         {
@@ -36,9 +35,13 @@ const FarmerTable = ({resultState}) => {
             title: 'Path',
             dataIndex: 'path',
             key: 'path',
-            render: (text, record) => <PathForm resultState={{result: result, setResult: setResult}}
-                                                sourceFarmer={record.source}
-                                                recordId={record.id}/>,
+            render: (text, record) => (
+                <PathForm
+                    resultState={{ result, setResult }}
+                    sourceFarmer={record.source}
+                    recordId={record.id}
+                />
+            ),
         },
     ];
 
@@ -46,7 +49,7 @@ const FarmerTable = ({resultState}) => {
         setFarmers(getDefaultCountryFarmers());
     }, [getDefaultCountryFarmers]);
 
-    return <Table className="farmer-table" columns={columns} dataSource={farmers}/>;
+    return <Table className="farmer-table" columns={columns} dataSource={farmers} />;
 };
 
 export default FarmerTable;
