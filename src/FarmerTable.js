@@ -3,13 +3,10 @@ import { Table } from 'antd';
 import './FarmerTable.sass';
 import { FarmerStoreContext } from './FarmerStore';
 import PathForm from './PathForm';
-import { ResultStoreContext } from './ResultStore';
 
 const FarmerTable = () => {
     const { getDefaultCountryFarmers } = useContext(FarmerStoreContext);
     const [farmers, setFarmers] = useState([]);
-    // const { result, setResult } = resultState;
-    const { result, setResult } = useContext(ResultStoreContext);
 
     const columns = [
         {
@@ -39,9 +36,8 @@ const FarmerTable = () => {
             key: 'path',
             render: (text, record) => (
                 <PathForm
-                    resultState={{ result, setResult }}
                     sourceFarmer={record.source}
-                    recordId={record.id}
+                    key={record.id}
                 />
             ),
         },

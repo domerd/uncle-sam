@@ -9,6 +9,7 @@ import { ArrowRightOutlined, CloudFilled, HomeFilled } from '@ant-design/icons';
 import './PathForm.sass';
 import _ from 'lodash';
 import { AdjacencyListStoreContext } from './AdjacencyListStore';
+import { ResultStoreContext } from './ResultStore';
 
 const { Option } = Select;
 
@@ -28,9 +29,9 @@ function RoadSelector({
     );
 }
 
-const PathForm = ({ recordId, sourceFarmer, resultState }) => {
+const PathForm = ({ sourceFarmer }) => {
     const { adjacencyList } = useContext(AdjacencyListStoreContext);
-    const { result, setResult } = resultState;
+    const { result, setResult } = useContext(ResultStoreContext);
     const [pathRoads, setPathRoads] = useState([sourceFarmer]);
     const [homeEnding, setHomeEnding] = useState(false);
 
