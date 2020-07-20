@@ -4,11 +4,11 @@
 
 import React, {useEffect, useContext, useState} from 'react';
 import {getFarmers} from './actions';
-import {RoadsStoreContext} from './RoadsStore';
 import {Button, Select} from 'antd';
 import {ArrowRightOutlined, CloudFilled, HomeFilled} from '@ant-design/icons';
 import "./PathForm.sass";
 import _ from 'lodash';
+import {AdjacencyListStoreContext} from "./AdjacencyListStore";
 
 const {Option} = Select;
 
@@ -25,7 +25,7 @@ function RoadSelector({color, source, options, pstate}) {
 
 
 const PathForm = () => {
-    const {allRoads} = useContext(RoadsStoreContext);
+    const {adjacencyList} = useContext(AdjacencyListStoreContext);
     let [pathRoads, setPathRoads] = useState([64]);
     let [homeEnding, setHomeEnding] = useState(false);
 
@@ -34,7 +34,7 @@ const PathForm = () => {
     }, []);
 
     useEffect(() => {
-        if (_.isEqual(allRoads[pathRoads[pathRoads.length - 1]], ['HOME'])) {
+        if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
         }
     }, [pathRoads]);
@@ -45,10 +45,10 @@ const PathForm = () => {
             {pathRoads.map(i =>
                 <div className={'Element'}>
                     <ArrowRightOutlined className={'Element'}/>
-                    {!_.isEqual(allRoads[i], ['HOME']) ?
+                    {!_.isEqual(adjacencyList[i], ['HOME']) ?
                         <RoadSelector key={i}
                                       color={homeEnding ? 'LawnGreen' : 'black'}
-                                      options={allRoads[i]}
+                                      options={adjacencyList[i]}
                                       pstate={{pathRoads, setPathRoads}}/>
                         : <div className={'Element'}>
                             <HomeFilled/>

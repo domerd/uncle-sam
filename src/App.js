@@ -11,6 +11,7 @@ import 'antd/dist/antd.css';
 import './App.sass';
 import CountryStore from './CountryStore';
 import FarmerStore from './FarmerStore';
+import AdjacencyListStore from "./AdjacencyListStore";
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -46,9 +47,11 @@ const App = () => {
                 <UserStore>
                     <CountryStore>
                         <FarmerStore>
-                            <RoadsStore>
-                                <Route exact path="/homepage" component={HomePage} />
-                            </RoadsStore>
+                            <AdjacencyListStore>
+                                <RoadsStore>
+                                    <Route exact path="/homepage" component={HomePage} />
+                                </RoadsStore>
+                            </AdjacencyListStore>
                         </FarmerStore>
                     </CountryStore>
                 </UserStore>
