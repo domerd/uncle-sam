@@ -7,9 +7,9 @@ import _ from 'lodash';
 import { Select } from 'antd';
 import classNames from 'classnames';
 import './PathForm.sass';
+import { ArrowRightOutlined, CloudFilled, HomeFilled } from '@ant-design/icons';
 import { ResultStoreContext } from './ResultStore';
 import { AdjacencyListStoreContext } from './AdjacencyListStore';
-import { ArrowRightOutlined, CloudFilled, HomeFilled } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -40,6 +40,9 @@ const PathForm = ({ sourceFarmer }) => {
             setResult({ ...result, [sourceFarmer]: pathRoads.slice(1) });
         } else {
             setHomeEnding(false);
+            const newResult = { ...result };
+            delete newResult[sourceFarmer];
+            setResult(newResult);
         }
     }, [pathRoads]);
 
