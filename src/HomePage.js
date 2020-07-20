@@ -27,8 +27,10 @@ const HomePage = () => {
                     Here you can config all the deliveries in {country}
                 </p>
             </div>
-            <FarmerTable />
-            <RoadStatus />
+            <div className="county-container">
+                <RoadStatus />
+                <FarmerTable />
+            </div>
         </div>
     );
 };

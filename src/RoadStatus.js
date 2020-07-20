@@ -29,6 +29,7 @@ const RoadStatus = () => {
                     <div className="road-status">
                         <p>{road.name}</p>
                         <Progress type="line" percent={percentage} strokeColor={color} />
+                        <p className="road-status-weight">{road.weight} / {road.max_weight} Kg</p>
                     </div>
                 )
             })}
