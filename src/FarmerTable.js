@@ -20,11 +20,16 @@ const FarmerTable = () => {
             title: 'Delivery Name',
             dataIndex: 'name',
             key: 'name',
-            render: (text) => (
+            render: (text, record) => (
                 <Input
+                    deliveryId={record.id}
                     defaultValue={text}
                     placeholder={text ? false : 'Insert name'}
-                    on
+                    onChange={(e) => {
+                        const newResult = { ...result };
+                        newResult[record.id] = { ...newResult[record.id], name: e.target.value };
+                        setResult(newResult);
+                    }}
                 />
             ),
         },
