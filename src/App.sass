@@ -1,6 +1,9 @@
 $main-color:  #70e2ef
 $second-color: #fee187
 
+#root
+  height: 100%
+
 .App
   text-align: center
 
@@ -10,6 +13,9 @@ $second-color: #fee187
   pointer-events: none
   align-self: center
   margin: 3rem
+
+.ant-layout-content
+  background: adjust_hue(lighten($second-color, 15), 10)
 
 .ant-layout-header
   display: flex
