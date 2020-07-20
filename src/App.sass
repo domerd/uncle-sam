@@ -1,3 +1,6 @@
+$main-color:  #70e2ef
+$second-color: #fee187
+
 .App
   text-align: center
 
@@ -7,3 +10,31 @@
   pointer-events: none
   align-self: center
   margin: 3rem
+
+.ant-layout-header
+  display: flex
+  align-items: center
+  background: $main-color
+  padding: 0 1rem
+
+  .header-app-name
+    margin-bottom: 0
+    color: $second-color
+    display: inline
+    align-self: center
+    margin-left: 1rem
+    font-family: Apple Chancery, cursive
+    font-size: 3rem
+
+  .log-off-button
+    float: right
+    margin: auto 0 auto auto
+    background: $second-color
+    color: $main-color
+
+    &:hover
+      color: $main-color
+      border-color: $main-color
+
+.header-logo
+  width: 50px
