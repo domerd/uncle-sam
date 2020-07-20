@@ -28,7 +28,7 @@ function RoadSelector({
     );
 }
 
-const PathForm = ({ sourceFarmer }) => {
+const PathForm = ({ sourceFarmer, deliveryId }) => {
     const { adjacencyList } = useContext(AdjacencyListStoreContext);
     const { result, setResult } = useContext(ResultStoreContext);
     const [pathRoads, setPathRoads] = useState([sourceFarmer]);
@@ -37,11 +37,11 @@ const PathForm = ({ sourceFarmer }) => {
     useEffect(() => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
-            setResult({ ...result, [sourceFarmer]: pathRoads.slice(1) });
+            setResult({ ...result, [deliveryId]: pathRoads });
         } else {
             setHomeEnding(false);
             const newResult = { ...result };
-            delete newResult[sourceFarmer];
+            delete newResult[deliveryId];
             setResult(newResult);
         }
     }, [pathRoads]);

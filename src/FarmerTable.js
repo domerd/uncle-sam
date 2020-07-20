@@ -36,6 +36,7 @@ const FarmerTable = () => {
             className: 'path-cells',
             render: (text, record) => (
                 <PathForm
+                    deliveryId={record.id}
                     sourceFarmer={record.source}
                     key={record.id}
                 />
