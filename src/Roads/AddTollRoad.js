@@ -16,26 +16,39 @@ const AddTollRoad = () => {
     const closeModal = () => setModalOpen(false);
 
     const addTollRoad = () => {
-        form.validateFields(({ name, max_weight }) => {
+        form.validateFields().then(({ name, max_weight }) => {
             changeRoadToToll(name, max_weight);
+            closeModal();
         });
     };
 
     const ModalContent = () => (
-        <Form form={form}>
+        <Form form={form} className="add-toll-modal">
             <Form.Item name="name" rules={[{ required: true, message: 'You muse choose a road!' }]}>
-                <Select
-                    placeholder="Choose a road"
-                    options={
+                <Select placeholder="Choose a road">
+                    {
                         _.map(_.filter(roads, (road) => !road.toll),
-                            (road) => <Select.Option value={road.name}>{road.name}</Select.Option>)
+                            (road) => (
+                                <Select.Option value={road.name}>
+                                    {road.name}
+                                </Select.Option>
+                            ))
                     }
-                />
+                </Select>
             </Form.Item>
             <Form.Item
                 name="max_weight"
                 rules={
-                    [{ required: true, message: 'You muse enter max weight!', type: 'number' }]
+                    [{
+                        required: true,
+                        message: 'You muse enter max weight!',
+                        validator: (rule, value) => {
+                            if (value.isNumber()) {
+                                return Promise.resolve();
+                            }
+                            return Promise.reject('You must enter a number!');
+                        },
+                    }]
                 }
             >
                 <Input placeholder="Max Weight in Kg" />
