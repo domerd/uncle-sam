@@ -48,7 +48,7 @@ const RoadsStore = ({ children }) => {
     const changeRoadToToll = (name, max_weight) => {
         const newRoads = _.map(roads, (road) => {
             if (road.name === name) {
-                return { ...road, max_weight };
+                return { ...road, toll: true, max_weight };
             }
             return road;
         });
