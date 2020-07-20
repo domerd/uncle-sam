@@ -24,7 +24,7 @@ const FarmerTable = () => {
                 <Input
                     deliveryId={record.id}
                     defaultValue={text}
-                    placeholder={text ? false : 'Insert name'}
+                    placeholder="Delivery name"
                     onChange={(e) => {
                         const newResult = { ...result };
                         newResult[record.id] = { ...newResult[record.id], name: e.target.value };
@@ -52,7 +52,6 @@ const FarmerTable = () => {
                 <PathForm
                     deliveryId={record.id}
                     sourceFarmer={record.source}
-                    deliveryID={record.id}
                 />
             ),
         },
