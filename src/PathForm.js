@@ -24,10 +24,10 @@ function RoadSelector({color, source, options, pstate}) {
 }
 
 
-const PathForm = ({recordId, source, resultState}) => {
+const PathForm = ({recordId, sourceFarmer, resultState}) => {
     const {adjacencyList} = useContext(AdjacencyListStoreContext);
     const {result, setResult} = resultState;
-    let [pathRoads, setPathRoads] = useState([source]);
+    let [pathRoads, setPathRoads] = useState([sourceFarmer]);
     let [homeEnding, setHomeEnding] = useState(false);
 
 
@@ -38,24 +38,24 @@ const PathForm = ({recordId, source, resultState}) => {
     useEffect(() => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
-            setResult({...result, [recordId]: pathRoads.slice(1)});
+            setResult({...result, [sourceFarmer]: pathRoads.slice(1)});
         }
     }, [pathRoads]);
 
 
     return (
         <div>
-            <CloudFilled className={'Element'}/>
+            <CloudFilled className={'element'}/>
             {pathRoads.map(i =>
-                <div className={'Element'}>
-                    <ArrowRightOutlined className={'Element'}/>
+                <div className={'element'}>
+                    <ArrowRightOutlined className={'element'}/>
                     {!_.isEqual(adjacencyList[i], ['HOME']) ?
                         <RoadSelector key={i}
                                       color={homeEnding ? 'LawnGreen' : 'black'}
                                       options={adjacencyList[i]}
                                       pstate={{pathRoads, setPathRoads}}/>
                         :
-                        <HomeFilled className={'Element'}/>}
+                        <HomeFilled className={'element'}/>}
                 </div>)
             }
         </div>

@@ -37,7 +37,7 @@ const FarmerTable = ({resultState}) => {
             dataIndex: 'path',
             key: 'path',
             render: (text, record) => <PathForm resultState={{result: result, setResult: setResult}}
-                                                source={record.source}
+                                                sourceFarmer={record.source}
                                                 recordId={record.id}/>,
         },
     ];
