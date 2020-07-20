@@ -20,20 +20,20 @@ const FarmerTable = () => {
             key: 'id',
         },
         {
-            title: 'Source farmer',
+            title: 'Source Farmer',
             dataIndex: 'source',
             key: 'source',
         },
         {
-            title: 'Size',
+            title: 'Size (in Kgs)',
             dataIndex: 'size',
             key: 'size',
-            render: (text) => `${text} Kilograms`,
         },
         {
             title: 'Path',
             dataIndex: 'path',
             key: 'path',
+            className: 'path-cells',
             render: (text, record) => (
                 <PathForm
                     sourceFarmer={record.source}

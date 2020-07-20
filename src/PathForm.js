@@ -3,27 +3,27 @@
  */
 
 import React, { useEffect, useContext, useState } from 'react';
-import { getFarmers } from './actions';
-import { Button, Select } from 'antd';
-import { ArrowRightOutlined, CloudFilled, HomeFilled } from '@ant-design/icons';
-import './PathForm.sass';
 import _ from 'lodash';
-import { AdjacencyListStoreContext } from './AdjacencyListStore';
+import { Select } from 'antd';
+import classNames from 'classnames';
+import './PathForm.sass';
+import { ArrowRightOutlined, CloudFilled, HomeFilled } from '@ant-design/icons';
 import { ResultStoreContext } from './ResultStore';
+import { AdjacencyListStoreContext } from './AdjacencyListStore';
 
 const { Option } = Select;
 
 function RoadSelector({
-    color, source, options, appendRoad,
+    options, appendRoad,
 }) {
     return (
         <Select
-            style={{ width: 120, color, fontWeight: 'bold' }}
+            className="road-selector"
             onChange={(value) => {
                 appendRoad(value);
             }}
         >
-            {options.map((i) => <Option key={i} value={i}>{i}</Option>)}
+            {_.map(options, (i) => <Option key={`road-option-${i}`} value={i}>{i}</Option>)}
         </Select>
     );
 }
@@ -35,14 +35,11 @@ const PathForm = ({ sourceFarmer }) => {
     const [homeEnding, setHomeEnding] = useState(false);
 
     useEffect(() => {
-        getFarmers();
-    }, []);
-
-    useEffect(() => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
             setResult({ ...result, [sourceFarmer]: pathRoads.slice(1) });
         } else {
+            setHomeEnding(false);
             const newResult = { ...result };
             delete newResult[sourceFarmer];
             setResult(newResult);
@@ -54,7 +51,7 @@ const PathForm = ({ sourceFarmer }) => {
     };
 
     return (
-        <div>
+        <div className={classNames('path-form', { home: homeEnding })}>
             <CloudFilled className="element" />
             {pathRoads.map((value, index) => (
                 <div className="element">
@@ -62,8 +59,7 @@ const PathForm = ({ sourceFarmer }) => {
                     {!_.isEqual(adjacencyList[value], ['HOME'])
                         ? (
                             <RoadSelector
-                                key={value}
-                                color={homeEnding ? 'LawnGreen' : 'black'}
+                                key={`${index}-${value}-road-selector`}
                                 options={adjacencyList[value]}
                                 appendRoad={_.partial(appendRoad, index + 1)}
                             />
