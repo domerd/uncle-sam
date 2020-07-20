@@ -14,14 +14,13 @@ import { ResultStoreContext } from './ResultStore';
 const { Option } = Select;
 
 function RoadSelector({
-    color, source, options, pstate,
+    color, source, options, appendRoad,
 }) {
-    const { pathRoads, setPathRoads } = pstate;
     return (
         <Select
             style={{ width: 120, color, fontWeight: 'bold' }}
             onChange={(value) => {
-                setPathRoads([...pathRoads, value]);
+                appendRoad(value);
             }}
         >
             {options.map((i) => <Option key={i} value={i}>{i}</Option>)}
@@ -46,19 +45,23 @@ const PathForm = ({ sourceFarmer }) => {
         }
     }, [pathRoads]);
 
+    const appendRoad = (index, road) => {
+        setPathRoads(_.slice(pathRoads, 0, index).concat(road));
+    };
+
     return (
         <div>
             <CloudFilled className="element" />
-            {pathRoads.map((i) => (
+            {pathRoads.map((value, index) => (
                 <div className="element">
                     <ArrowRightOutlined className="element" />
-                    {!_.isEqual(adjacencyList[i], ['HOME'])
+                    {!_.isEqual(adjacencyList[value], ['HOME'])
                         ? (
                             <RoadSelector
-                                key={i}
+                                key={value}
                                 color={homeEnding ? 'LawnGreen' : 'black'}
-                                options={adjacencyList[i]}
-                                pstate={{ pathRoads, setPathRoads }}
+                                options={adjacencyList[value]}
+                                appendRoad={_.partial(appendRoad, index + 1)}
                             />
                         )
                         : <HomeFilled className="element" />}
