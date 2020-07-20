@@ -25,7 +25,7 @@ const columns = [
         title: 'Path',
         dataIndex: 'path',
         key: 'path',
-        render: () => <PathForm />,
+        render: (text, record, row) => <PathForm allPathsState=key={record.id}/>,
     },
 ];
 
