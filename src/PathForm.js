@@ -24,10 +24,12 @@ function RoadSelector({color, source, options, pstate}) {
 }
 
 
-const PathForm = () => {
+const PathForm = ({recordId, resultState}) => {
     const {adjacencyList} = useContext(AdjacencyListStoreContext);
+    const {result, setResult} = resultState;
     let [pathRoads, setPathRoads] = useState([64]);
     let [homeEnding, setHomeEnding] = useState(false);
+
 
     useEffect(() => {
         getFarmers();
@@ -36,8 +38,10 @@ const PathForm = () => {
     useEffect(() => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
+            setResult({...result, [recordId]: pathRoads});
         }
     }, [pathRoads]);
+
 
     return (
         <div>
@@ -50,12 +54,8 @@ const PathForm = () => {
                                       color={homeEnding ? 'LawnGreen' : 'black'}
                                       options={adjacencyList[i]}
                                       pstate={{pathRoads, setPathRoads}}/>
-                        : <div className={'Element'}>
-                            <HomeFilled/>
-                            <Button className={'Element'} onClick={() => console.log(pathRoads)}
-                                    type="primary">send</Button>
-                        </div>
-                    }
+                        :
+                        <HomeFilled className={'Element'}/>}
                 </div>)
             }
         </div>
