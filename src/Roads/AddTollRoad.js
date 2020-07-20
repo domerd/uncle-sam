@@ -19,6 +19,7 @@ const AddTollRoad = () => {
         form.validateFields().then(({ name, max_weight }) => {
             changeRoadToToll(name, Number.parseInt(max_weight));
             closeModal();
+            form.resetFields();
         });
     };
 
