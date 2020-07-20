@@ -24,10 +24,10 @@ function RoadSelector({color, source, options, pstate}) {
 }
 
 
-const PathForm = ({recordId, resultState}) => {
+const PathForm = ({recordId, source, resultState}) => {
     const {adjacencyList} = useContext(AdjacencyListStoreContext);
     const {result, setResult} = resultState;
-    let [pathRoads, setPathRoads] = useState([64]);
+    let [pathRoads, setPathRoads] = useState([source]);
     let [homeEnding, setHomeEnding] = useState(false);
 
 
@@ -38,7 +38,7 @@ const PathForm = ({recordId, resultState}) => {
     useEffect(() => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
-            setResult({...result, [recordId]: pathRoads});
+            setResult({...result, [recordId]: pathRoads.slice(1)});
         }
     }, [pathRoads]);
 

@@ -32,7 +32,7 @@ const HomePage = () => {
             <div className="county-container">
                 <RoadStatus />
                 <FarmerTable resultState={{result, setResult}}/>
-                <ReactJson name={'Paths'} theme={"monokai"} src={result} />
+                <ReactJson country={country} name={'Paths'} theme={"monokai"} src={result} />
             </div>
         </div>
     );

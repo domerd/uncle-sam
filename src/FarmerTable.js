@@ -22,6 +22,11 @@ const FarmerTable = ({resultState}) => {
             key: 'id',
         },
         {
+            title: 'Source farmer',
+            dataIndex: 'source',
+            key: 'source',
+        },
+        {
             title: 'Size',
             dataIndex: 'size',
             key: 'size',
@@ -32,7 +37,8 @@ const FarmerTable = ({resultState}) => {
             dataIndex: 'path',
             key: 'path',
             render: (text, record) => <PathForm resultState={{result: result, setResult: setResult}}
-                                                     recordId={record.id}/>,
+                                                source={record.source}
+                                                recordId={record.id}/>,
         },
     ];
 
