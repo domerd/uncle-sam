@@ -19,7 +19,7 @@ const FarmerStore = ({ children }) => {
 
     const getDefaultCountryFarmers = useCallback(
         () => _.filter(farmers, { country: defaultCountry }),
-        [defaultCountry, farmers]
+        [defaultCountry, farmers],
     );
 
     return (
