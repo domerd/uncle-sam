@@ -22,7 +22,7 @@ const FarmerTable = () => {
             key: 'name',
             render: (text, record) => (
                 <Input
-                    deliveryId={record.id}
+                    key={record.id}
                     defaultValue={text}
                     placeholder="Delivery name"
                     onChange={(e) => {
