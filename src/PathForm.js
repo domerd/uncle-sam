@@ -37,7 +37,9 @@ const PathForm = ({ sourceFarmer, deliveryId }) => {
     useEffect(() => {
         if (_.isEqual(adjacencyList[pathRoads[pathRoads.length - 1]], ['HOME'])) {
             setHomeEnding(true);
-            setResult({ ...result, [deliveryId]: pathRoads });
+            const newResult = { ...result };
+            newResult[deliveryId] = { ...newResult[deliveryId], pathRoads };
+            setResult(newResult);
         } else {
             setHomeEnding(false);
             const newResult = { ...result };

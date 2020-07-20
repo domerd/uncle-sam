@@ -35,7 +35,7 @@ def protected():
             'country': '1',
         },
         {
-            'name': 'Banana Farm',
+            # 'name': 'Banana Farm',
             'id': 3,
             'source': 24,
             'size': 55,

@@ -44,8 +44,8 @@ const RoadsStore = ({ children }) => {
     const { result } = useContext(ResultStoreContext);
     const { getDeliveryWeightById } = useContext(FarmerStoreContext);
 
-    const getRoadWeight = (name) => _.reduce(result, (sum, paths, deliveryId) => {
-        if (_.includes(paths, name)) {
+    const getRoadWeight = (name) => _.reduce(result, (sum, deliveryData, deliveryId) => {
+        if (_.includes(deliveryData.pathRoads, name)) {
             return sum + getDeliveryWeightById(Number.parseInt(deliveryId));
         }
         return sum;
