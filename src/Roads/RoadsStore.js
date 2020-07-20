@@ -2,8 +2,8 @@
  * Created by omerdoron on 16/07/2020.
  */
 
-
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import _ from 'lodash';
 
 export const RoadsStoreContext = React.createContext();
 
@@ -38,12 +38,28 @@ const RoadsStore = ({ children }) => {
             weight: 17,
             toll: false,
         },
+        {
+            name: 'Highway 90',
+            weight: 20,
+            toll: false,
+        },
     ]);
 
-    return <RoadsStoreContext.Provider value={{ roads }}>
-        {children}
-    </RoadsStoreContext.Provider>
+    const changeRoadToToll = (name, max_weight) => {
+        const newRoads = _.map(roads, (road) => {
+            if (road.name === name) {
+                return { ...road, toll: true, max_weight };
+            }
+            return road;
+        });
+        setRoads(newRoads);
+    };
+
+    return (
+        <RoadsStoreContext.Provider value={{ roads, changeRoadToToll }}>
+            {children}
+        </RoadsStoreContext.Provider>
+    );
 };
 
 export default RoadsStore;
-

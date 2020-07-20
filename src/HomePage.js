@@ -3,13 +3,11 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
-import logo from './logo.svg';
-import { getFarmers } from './actions';
 import ConfigModal from './ConfigModal';
 import { CountryStoreContext } from './CountryStore';
 import './HomePage.sass';
 import FarmerTable from './FarmerTable';
-import RoadStatus from './RoadStatus';
+import RoadStatusSection from './Roads/RoadStatusSection';
 
 const HomePage = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
@@ -28,7 +26,7 @@ const HomePage = () => {
                 </p>
             </div>
             <div className="county-container">
-                <RoadStatus />
+                <RoadStatusSection />
                 <FarmerTable />
             </div>
         </div>
