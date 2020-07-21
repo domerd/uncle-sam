@@ -14,8 +14,8 @@ const HomePage = () => (
         <div className="county-container">
             <RoadStatusSection />
             <FarmerTable />
-            <ResultJson />
         </div>
+        <ResultJson />
     </div>
 );
 

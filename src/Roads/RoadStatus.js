@@ -11,7 +11,7 @@ const SAFE_WEIGHT = 20;
 const RED = '#ff4d4f';
 const ORANGE = '#faad14';
 const GREEN = '#52c41a';
-const BLUE = '';
+const BLUE = '#5390d9';
 
 const RoadStatus = () => {
     const { roads, getRoadWeight } = useContext(RoadsStoreContext);
