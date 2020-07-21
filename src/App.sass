@@ -1,6 +1,13 @@
 $main-color:  #70e2ef
 $second-color: #fee187
 
+//$main-color: #4EA8DE
+//$second-color: #72EFDD
+
+$main-color: #f0efeb
+$second-color: lighten(#f0efeb, 5)
+$third-color: #64dfdf
+
 #root
   height: 100%
 
@@ -25,7 +32,7 @@ $second-color: #fee187
 
   .header-app-name
     margin-bottom: 0
-    color: $second-color
+    color: $third-color
     display: inline
     align-self: center
     margin-left: 1rem
@@ -36,11 +43,11 @@ $second-color: #fee187
     float: right
     margin: auto 0 auto auto
     background: $second-color
-    color: $main-color
+    color: $third-color
 
     &:hover
-      color: $main-color
-      border-color: $main-color
+      color: $third-color
+      border-color: $third-color
 
 .header-logo
   width: 50px
