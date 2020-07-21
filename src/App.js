@@ -28,7 +28,9 @@ const App = () => {
     const history = useHistory();
 
     const redirectToLogin = useCallback(() => {
-        history.push('/login');
+        if (window.location.pathname !== '/login') {
+            history.push('/login');
+        }
     }, [history]);
 
     const checkLoggedIn = useCallback(() => {
@@ -67,37 +69,39 @@ const App = () => {
     );
 
     return (
-        <Switch>
-            {logged && (
-                <Layout>
-                    <UserStore>
-                        <CountryStore>
-                            <Layout.Header>
-                                <img src="/farmer.png" className="header-logo" alt="logo" />
-                                <p className="header-app-name">Uncle Sam</p>
-                                <CountryHeader />
-                                <ConfigCountryModal />
-                                <LogOff />
-                            </Layout.Header>
-                            <Layout.Content>
-                                <FarmerStore>
-                                    <AdjacencyListStore>
-                                        <ResultStore>
-                                            <RoadsStore>
-                                                <Route exact path="/homepage" component={HomePage} />
-                                            </RoadsStore>
-                                        </ResultStore>
-                                    </AdjacencyListStore>
-                                </FarmerStore>
+        <>
+            <Switch>
+                {logged && (
+                    <Layout>
+                        <UserStore>
+                            <CountryStore>
+                                <Layout.Header>
+                                    <img src="/farmer.png" className="header-logo" alt="logo" />
+                                    <p className="header-app-name">Uncle Sam</p>
+                                    <CountryHeader />
+                                    <ConfigCountryModal />
+                                    <LogOff />
+                                </Layout.Header>
+                                <Layout.Content>
+                                    <FarmerStore>
+                                        <AdjacencyListStore>
+                                            <ResultStore>
+                                                <RoadsStore>
+                                                    <Route exact path="/homepage" component={HomePage} />
+                                                </RoadsStore>
+                                            </ResultStore>
+                                        </AdjacencyListStore>
+                                    </FarmerStore>
 
-                            </Layout.Content>
-                        </CountryStore>
-                    </UserStore>
-                </Layout>
-            )}
-            <Route exact path="/login" render={renderLogin} />
+                                </Layout.Content>
+                            </CountryStore>
+                        </UserStore>
+                    </Layout>
+                )}
+                {!logged && <Route exact path="/login" render={renderLogin} />}
+            </Switch>
             <Redirect to="/homepage" from="/" />
-        </Switch>
+        </>
     );
 };
 
