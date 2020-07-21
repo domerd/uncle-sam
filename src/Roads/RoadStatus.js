@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Progress } from 'antd';
+import { Card, Progress } from 'antd';
 import _ from 'lodash';
 import { RoadsStoreContext } from './RoadsStore';
 import './RoadStatus.sass';
@@ -31,7 +31,7 @@ const RoadStatus = () => {
                 }
                 return (
                     <div className="road-status">
-                        <p>{road.name}</p>
+                        <p>{`Road ${road.name}`}</p>
                         <Progress
                             type="line"
                             percent={percentage}

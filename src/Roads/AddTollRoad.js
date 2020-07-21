@@ -3,7 +3,7 @@ import _ from 'lodash';
 import {
     Form, Select, Input, Button, Modal,
 } from 'antd';
-import { SisternodeOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { RoadsStoreContext } from './RoadsStore';
 import './AddTollRoad.sass';
 
@@ -65,7 +65,7 @@ const AddTollRoad = () => {
 
     return (
         <>
-            <Button icon={<SisternodeOutlined />} shape="circle" className="add-toll-road" onClick={openModal} />
+            <Button icon={<PlusOutlined />} shape="circle" className="add-toll-road" onClick={openModal} />
             {modalOpen && (
                 <Modal
                     visible

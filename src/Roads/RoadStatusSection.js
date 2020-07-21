@@ -5,10 +5,10 @@ import './RoadStatusSection.sass';
 import { Card } from 'antd';
 
 const RoadStatusSection = () => (
-    <Card className="road-status-section">
+    <div className="road-status-section">
         <RoadStatus />
         <AddTollRoad />
-    </Card>
+    </div>
 
 );
 
