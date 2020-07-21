@@ -30,7 +30,7 @@ const ConfigCountryModal = () => {
 
     return (
         <>
-            <Button className="config-modal-button" shape="circle" icon={<SettingOutlined />} onClick={openModal} />
+            <Button id="config-modal-button" shape="circle" icon={<SettingOutlined />} onClick={openModal} />
             {modalOpen && (
                 <Modal
                     visible

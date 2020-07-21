@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Input, Table } from 'antd';
+import { Card, Input, Table } from 'antd';
 import './FarmerTable.sass';
 import { FarmerStoreContext } from './FarmerStore';
 import PathForm from './PathForm';
@@ -65,7 +65,9 @@ const FarmerTable = () => {
         setFarmers(getDefaultCountryFarmers());
     }, [getDefaultCountryFarmers]);
 
-    return <Table className="farmer-table" bordered columns={columns} dataSource={farmers} />;
+    return (
+        <Table className="farmer-table" bordered columns={columns} dataSource={farmers} />
+    );
 };
 
 export default FarmerTable;
