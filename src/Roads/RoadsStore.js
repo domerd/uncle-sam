@@ -32,6 +32,36 @@ const RoadsStore = ({ children }) => {
             toll: true,
         },
         {
+            name: 12,
+            max_weight: 80,
+            toll: true,
+        },
+        {
+            name: 40,
+            max_weight: 100,
+            toll: true,
+        },
+        {
+            name: 41,
+            max_weight: 100,
+            toll: true,
+        },
+        {
+            name: 42,
+            max_weight: 100,
+            toll: true,
+        },
+        {
+            name: 43,
+            max_weight: 100,
+            toll: true,
+        },
+        {
+            name: 44,
+            max_weight: 100,
+            toll: true,
+        },
+        {
             name: 5,
             toll: false,
         },
