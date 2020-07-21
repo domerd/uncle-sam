@@ -20,7 +20,7 @@ import FarmerStore from './FarmerStore';
 import AdjacencyListStore from './AdjacencyListStore';
 import ResultStore from './ResultStore';
 import ConfigCountryModal from './ConfigCountryModal';
-import CountryText from './CountryText';
+import CountryHeader from './CountryHeader';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -75,7 +75,7 @@ const App = () => {
                             <Layout.Header>
                                 <img src="/farmer.png" className="header-logo" alt="logo" />
                                 <p className="header-app-name">Uncle Sam</p>
-                                <CountryText />
+                                <CountryHeader />
                                 <ConfigCountryModal />
                                 <LogOff />
                             </Layout.Header>

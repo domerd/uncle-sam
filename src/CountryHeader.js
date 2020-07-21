@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CountryStoreContext } from './CountryStore';
-import './CountryText.sass';
+import './CountryHeader.sass';
 import { Tag } from 'antd';
 
-const SECONDARY_COLOR = '#fee187';
+// const SECONDARY_COLOR = '#fee187';
 
-const CountryText = () => {
+const CountryHeader = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
     const [country, setCountry] = useState(undefined);
 
@@ -15,10 +15,10 @@ const CountryText = () => {
 
     return (
         <div id="country-container">
-            <Tag style={{ fontSize: 'large', padding: 10 }} color={SECONDARY_COLOR}>
+            <Tag style={{ fontSize: 'large', padding: 10 }} color="white">
                 <h1>{country}</h1>
             </Tag>
         </div>
     );
 };
-export default CountryText;
+export default CountryHeader;
