@@ -11,7 +11,7 @@ import ResultJson from './ResultJson';
 
 const HomePage = () => (
     <div className="homepage">
-        <div className="county-container">
+        <div className="country-container">
             <FarmerTable />
 
             <RoadStatusSection />
