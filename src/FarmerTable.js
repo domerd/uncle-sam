@@ -10,6 +10,15 @@ const FarmerTable = () => {
     const { result, setResult } = useContext(ResultStoreContext);
     const [farmers, setFarmers] = useState([]);
 
+    const expandedRowRender = () => {
+        const columns = [
+            { title: 'X', dataIndex: 'x', key: 'x' },
+            { title: 'Y', dataIndex: 'y', key: 'y' },
+        ];
+
+        return <Table bordered columns={columns} dataSource={farmers} pagination={false} />;
+    };
+
     const columns = [
         {
             title: 'ID',
@@ -66,7 +75,13 @@ const FarmerTable = () => {
     }, [getDefaultCountryFarmers]);
 
     return (
-        <Table className="farmer-table" bordered columns={columns} dataSource={farmers} />
+        <Table
+            expandable={{ expandedRowRender }}
+            className="farmer-table"
+            bordered
+            columns={columns}
+            dataSource={farmers}
+        />
     );
 };
 

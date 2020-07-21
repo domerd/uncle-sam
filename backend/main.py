@@ -25,6 +25,7 @@ def protected():
             'id': 1,
             'source': 20,
             'size': 40,
+            'x': 30,
             'country': '1',
         },
         {
