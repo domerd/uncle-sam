@@ -1,5 +1,18 @@
+@import "App"
+
 .farmer-table
   width: 70%
   align-self: center
   margin: 2rem
   flex: 4
+
+  .ant-table
+    thead.ant-table-thead
+      tr > th
+        background: $main-color
+    background: $second-color
+
+  .path-cells
+    overflow-x: scroll
+    white-space: nowrap
+    max-width: 300px

@@ -1,4 +1,6 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, {
+    useCallback, useContext, useEffect, useState,
+} from 'react';
 import _ from 'lodash';
 import { getCountries } from './actions';
 import { UserStoreContext } from './UserStore';

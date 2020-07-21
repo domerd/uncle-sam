@@ -13,6 +13,8 @@ import 'antd/dist/antd.css';
 import './App.sass';
 import CountryStore from './CountryStore';
 import FarmerStore from './FarmerStore';
+import AdjacencyListStore from './AdjacencyListStore';
+import ResultStore from './ResultStore';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -24,6 +26,7 @@ const App = () => {
     }, [history]);
 
     const checkLoggedIn = useCallback(() => {
+        // eslint-disable-next-line no-undef
         const jwtToken = localStorage.getItem(JWT_TOKEN_KEY);
 
         if (!jwtToken) {
@@ -45,11 +48,14 @@ const App = () => {
     const LogOff = () => (
         <Popover content="Log Off" className="log-off-button" placement="bottomRight">
             <Button
-              icon={<LogoutOutlined />} onClick={() => {
+                icon={<LogoutOutlined />}
+                onClick={() => {
+                    // eslint-disable-next-line no-undef
                     localStorage.removeItem(JWT_TOKEN_KEY);
                     setLogged(false);
                     redirectToLogin();
-                }} shape="circle"
+                }}
+                shape="circle"
             />
         </Popover>
     );
@@ -67,9 +73,13 @@ const App = () => {
                         <UserStore>
                             <CountryStore>
                                 <FarmerStore>
-                                    <RoadsStore>
-                                        <Route exact path="/homepage" component={HomePage} />
-                                    </RoadsStore>
+                                    <AdjacencyListStore>
+                                        <ResultStore>
+                                            <RoadsStore>
+                                                <Route exact path="/homepage" component={HomePage} />
+                                            </RoadsStore>
+                                        </ResultStore>
+                                    </AdjacencyListStore>
                                 </FarmerStore>
                             </CountryStore>
                         </UserStore>

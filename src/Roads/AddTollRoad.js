@@ -19,6 +19,7 @@ const AddTollRoad = () => {
         form.validateFields().then(({ name, max_weight }) => {
             changeRoadToToll(name, Number.parseInt(max_weight));
             closeModal();
+            form.resetFields();
         });
     };
 
@@ -42,9 +43,14 @@ const AddTollRoad = () => {
                     [{
                         required: true,
                         message: 'You muse enter max weight!',
+                    }, {
+                        message: 'You must enter a number!',
                         validator: (rule, value) => {
+                            if (!value) {
+                                return Promise.resolve();
+                            }
                             const number = Number.parseInt(value);
-                            if (value) {
+                            if (number) {
                                 return Promise.resolve();
                             }
                             return Promise.reject('You must enter a number!');

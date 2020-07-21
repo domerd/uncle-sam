@@ -11,14 +11,14 @@ const SAFE_WEIGHT = 20;
 const RED = '#ff4d4f';
 const ORANGE = '#faad14';
 const GREEN = '#52c41a';
-const BLUE = '';
+const BLUE = '#5390d9';
 
 const RoadStatus = () => {
-    const { roads } = useContext(RoadsStoreContext);
+    const { roads, getRoadWeight } = useContext(RoadsStoreContext);
     return (
         <div className="road-status-container">
             {_.map(_.sortBy(_.filter(roads, 'toll'), 'name'), (road) => {
-                const percentage = (road.weight * 100) / road.max_weight;
+                const percentage = (Math.round(getRoadWeight(road.name) * 100 / road.max_weight));
                 let color;
                 if (percentage >= FULL_WEIGHT) {
                     color = RED;
@@ -39,7 +39,7 @@ const RoadStatus = () => {
                             status={percentage >= FULL_WEIGHT && 'exception'}
                         />
                         <p className="road-status-weight">
-                            {`${road.weight} / ${road.max_weight} Kg`}
+                            {`${getRoadWeight(road.name)} / ${road.max_weight} Kg`}
                         </p>
                     </div>
                 );

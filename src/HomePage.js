@@ -3,8 +3,11 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
+import ReactJson from 'react-json-view';
 import ConfigModal from './ConfigModal';
 import { CountryStoreContext } from './CountryStore';
+import { ResultStoreContext } from './ResultStore';
+
 import './HomePage.sass';
 import FarmerTable from './FarmerTable';
 import RoadStatusSection from './Roads/RoadStatusSection';
@@ -12,6 +15,7 @@ import RoadStatusSection from './Roads/RoadStatusSection';
 const HomePage = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
     const [country, setCountry] = useState(undefined);
+    const { result } = useContext(ResultStoreContext);
 
     useEffect(() => {
         setCountry(getDefaultCountryName());
@@ -22,13 +26,16 @@ const HomePage = () => {
             <div className="config-line">
                 <ConfigModal />
                 <p>
-                    Here you can config all the deliveries in {country}
+                    Here you can config all the deliveries in
+                    {' '}
+                    {country}
                 </p>
             </div>
             <div className="county-container">
                 <RoadStatusSection />
                 <FarmerTable />
             </div>
+            <ReactJson country={country} name="Result" theme="monokai" src={result} />
         </div>
     );
 };

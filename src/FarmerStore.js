@@ -19,11 +19,16 @@ const FarmerStore = ({ children }) => {
 
     const getDefaultCountryFarmers = useCallback(
         () => _.filter(farmers, { country: defaultCountry }),
-        [defaultCountry, farmers]
+        [defaultCountry, farmers],
     );
 
+    const getDeliveryWeightById = useCallback((id) => {
+        const delivery = _.find(farmers, { id });
+        return delivery ? delivery.size : undefined;
+    }, [farmers]);
+
     return (
-        <FarmerStoreContext.Provider value={{ farmers, getDefaultCountryFarmers }}>
+        <FarmerStoreContext.Provider value={{ farmers, getDefaultCountryFarmers, getDeliveryWeightById }}>
             {children}
         </FarmerStoreContext.Provider>
     );
