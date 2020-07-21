@@ -95,7 +95,6 @@ def roads():
 
             {"name": 10, "max_weight": 100, "toll": True, },
             {"name": 11, "max_weight": 100, "toll": True, },
-            {"name": 12, "max_weight": 100, "toll": True, },
             {"name": 13, "max_weight": 100, "toll": True, },
             {"name": 14, "max_weight": 100, "toll": True, },
             {"name": 15, "max_weight": 100, "toll": True, },

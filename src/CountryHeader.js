@@ -14,11 +14,11 @@ const CountryHeader = () => {
     return (
         <div className="country-container">
             <Tag color="white">
-                <h2>
-                    Deliveries in:
-                    {' '}
-                </h2>
                 <h1>{country}</h1>
+                <h2>
+                    {' '}
+                    deliveries
+                </h2>
             </Tag>
         </div>
     );
