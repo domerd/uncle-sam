@@ -1,8 +1,12 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, {
+    useEffect, useState, useCallback, useContext,
+} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
-import { Button, Layout, Popover } from 'antd';
+import {
+    Button, Divider, Layout, Popover,
+} from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 import HomePage from './HomePage';
 import UserStore from './UserStore';
@@ -11,10 +15,12 @@ import LoginPage, { JWT_TOKEN_KEY } from './LoginPage';
 import { addJWTToHeader, validateToken } from './Login/actions';
 import 'antd/dist/antd.css';
 import './App.sass';
-import CountryStore from './CountryStore';
+import CountryStore, { CountryStoreContext } from './CountryStore';
 import FarmerStore from './FarmerStore';
 import AdjacencyListStore from './AdjacencyListStore';
 import ResultStore from './ResultStore';
+import ConfigCountryModal from './ConfigCountryModal';
+import CountryHeader from './CountryHeader';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -64,14 +70,16 @@ const App = () => {
         <Switch>
             {logged && (
                 <Layout>
-                    <Layout.Header>
-                        <img src="/farmer.png" className="header-logo" alt="logo" />
-                        <p className="header-app-name">Uncle Sam</p>
-                        <LogOff />
-                    </Layout.Header>
-                    <Layout.Content>
-                        <UserStore>
-                            <CountryStore>
+                    <UserStore>
+                        <CountryStore>
+                            <Layout.Header>
+                                <img src="/farmer.png" className="header-logo" alt="logo" />
+                                <p className="header-app-name">Uncle Sam</p>
+                                <CountryHeader />
+                                <ConfigCountryModal />
+                                <LogOff />
+                            </Layout.Header>
+                            <Layout.Content>
                                 <FarmerStore>
                                     <AdjacencyListStore>
                                         <ResultStore>
@@ -81,9 +89,10 @@ const App = () => {
                                         </ResultStore>
                                     </AdjacencyListStore>
                                 </FarmerStore>
-                            </CountryStore>
-                        </UserStore>
-                    </Layout.Content>
+
+                            </Layout.Content>
+                        </CountryStore>
+                    </UserStore>
                 </Layout>
             )}
             <Route exact path="/login" render={renderLogin} />
