@@ -92,6 +92,15 @@ def roads():
             {"name": 2, "max_weight": 60, "toll": True,},
             {"name": 1, "max_weight": 100, "toll": True,},
             {"name": 4, "max_weight": 75, "toll": True,},
+
+            {"name": 10, "max_weight": 100, "toll": True, },
+            {"name": 11, "max_weight": 100, "toll": True, },
+            {"name": 12, "max_weight": 100, "toll": True, },
+            {"name": 13, "max_weight": 100, "toll": True, },
+            {"name": 14, "max_weight": 100, "toll": True, },
+            {"name": 15, "max_weight": 100, "toll": True, },
+            {"name": 16, "max_weight": 100, "toll": True, },
+
             {"name": 5, "toll": False,},
             {"name": 90, "toll": False,},
         ]
