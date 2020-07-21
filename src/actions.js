@@ -9,3 +9,5 @@ export const getFarmers = () => axios.get('/api/farmers');
 export const getCountries = () => axios.get('/api/countries');
 
 export const getMap = () => axios.get('/api/map');
+
+export const getRoads = () => axios.get('/api/roads');

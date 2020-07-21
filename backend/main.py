@@ -83,6 +83,21 @@ def protected():
     )
 
 
+@app.route("/api/roads")
+@jwt_required
+def roads():
+    return jsonify(
+        [
+            {"name": 6, "max_weight": 70, "toll": True,},
+            {"name": 2, "max_weight": 60, "toll": True,},
+            {"name": 1, "max_weight": 100, "toll": True,},
+            {"name": 4, "max_weight": 75, "toll": True,},
+            {"name": 5, "toll": False,},
+            {"name": 90, "toll": False,},
+        ]
+    )
+
+
 @app.route("/api/map")
 @jwt_required
 def get_map():
