@@ -62,7 +62,7 @@ const FarmerTable = () => {
         setFarmers(getDefaultCountryFarmers());
     }, [getDefaultCountryFarmers]);
 
-    return <Table className="farmer-table" columns={columns} dataSource={farmers} />;
+    return <Table className="farmer-table" bordered columns={columns} dataSource={farmers} />;
 };
 
 export default FarmerTable;
