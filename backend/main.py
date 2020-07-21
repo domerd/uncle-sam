@@ -88,10 +88,10 @@ def protected():
 def roads():
     return jsonify(
         [
-            {"name": 6, "max_weight": 70, "toll": True,},
-            {"name": 2, "max_weight": 60, "toll": True,},
+            {"name": 6, "max_weight": 300, "toll": True,},
+            {"name": 2, "max_weight": 200, "toll": True,},
             {"name": 1, "max_weight": 100, "toll": True,},
-            {"name": 4, "max_weight": 75, "toll": True,},
+            {"name": 4, "max_weight": 250, "toll": True,},
 
             {"name": 10, "max_weight": 100, "toll": True, },
             {"name": 11, "max_weight": 100, "toll": True, },
