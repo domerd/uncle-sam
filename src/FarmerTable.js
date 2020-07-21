@@ -20,6 +20,7 @@ const FarmerTable = () => {
             title: 'Delivery Name',
             dataIndex: 'name',
             key: 'name',
+            width: '15rem',
             render: (text, record) => (
                 <Input
                     key={record.id}
@@ -34,14 +35,16 @@ const FarmerTable = () => {
             ),
         },
         {
-            title: 'Source Farmer ID',
+            title: 'Source ID',
             dataIndex: 'source',
             key: 'source',
+            width: '5rem',
         },
         {
             title: 'Size [kg/s]',
             dataIndex: 'size',
             key: 'size',
+            width: '5rem',
         },
         {
             title: 'Path',
@@ -50,6 +53,7 @@ const FarmerTable = () => {
             className: 'path-cells',
             render: (text, record) => (
                 <PathForm
+                    key={record.id}
                     deliveryId={record.id}
                     sourceFarmer={record.source}
                 />

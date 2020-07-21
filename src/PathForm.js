@@ -23,7 +23,7 @@ function RoadSelector({
                 appendRoad(value);
             }}
         >
-            {_.map(options, (i) => <Option key={`road-option-${i}`} value={i}>{i}</Option>)}
+            {_.map(_.sortBy(options), (i) => <Option key={`road-option-${i}`} value={i}>{i}</Option>)}
         </Select>
     );
 }
