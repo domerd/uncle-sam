@@ -3,8 +3,6 @@ import { CountryStoreContext } from './CountryStore';
 import './CountryHeader.sass';
 import { Tag } from 'antd';
 
-// const SECONDARY_COLOR = '#fee187';
-
 const CountryHeader = () => {
     const { getDefaultCountryName } = useContext(CountryStoreContext);
     const [country, setCountry] = useState(undefined);
@@ -14,17 +12,13 @@ const CountryHeader = () => {
     }, [getDefaultCountryName]);
 
     return (
-        <div id="country-container">
-
-            <Tag style={{ fontSize: 'large', padding: 10 }} color="white">
+        <div className="country-container">
+            <Tag color="white">
                 <h2>
                     Deliveries in:
                     {' '}
                 </h2>
-
-                <h1>
-                    {country}
-                </h1>
+                <h1>{country}</h1>
             </Tag>
         </div>
     );
