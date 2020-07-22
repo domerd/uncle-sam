@@ -5,7 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 import {
-    Button, Divider, Layout, Popover,
+    Button, Layout, Popover,
 } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 import HomePage from './HomePage';
@@ -76,10 +76,9 @@ const App = () => {
                         <UserStore>
                             <CountryStore>
                                 <Layout.Header>
-                                    <img src="/farmer.png" className="header-logo" alt="logo" />
-                                    <p className="header-app-name">Uncle Sam</p>
+                                    <img src="/lester_white_logo.png" className="header-logo" alt="logo" />
                                     <CountryHeader />
-                                    <ConfigCountryModal />
+                                    {/* <ConfigCountryModal /> */}
                                     <LogOff />
                                 </Layout.Header>
                                 <Layout.Content>

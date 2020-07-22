@@ -1,12 +1,9 @@
-$main-color: #d24d57
-$second-color: #fee187
-
-//$main-color: #4EA8DE
-//$second-color: #72EFDD
-
 $main-color: #f0efeb
 $second-color: lighten(#f0efeb, 5)
 $third-color: #d24d57
+
+body
+  background-color: $third-color
 
 // Override ant-design default colors
 .ant-btn
@@ -67,21 +64,17 @@ $third-color: #d24d57
 
 .ant-layout-header
   display: flex
+  background-image: url("/highway.png")
+  background-repeat: no-repeat
+  background-size: cover
+  border-bottom: .2em solid $third-color
   align-items: center
-  background: $main-color
   padding: 0 1rem
 
-  .header-app-name
-    margin-bottom: 0
-    color: $third-color
-    display: inline
-    align-self: center
-    margin-left: 1rem
-    font-family: Apple Chancery, cursive
-    font-size: 3rem
 
   .log-off-button
-    float: right
+    position: absolute
+    right: 1rem
     background: $second-color
     color: $third-color
 
@@ -90,4 +83,4 @@ $third-color: #d24d57
       border-color: $third-color
 
 .header-logo
-  width: 50px
+  height: 40px
