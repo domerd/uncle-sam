@@ -1,31 +1,60 @@
 $main-color: #f0efeb
 $second-color: lighten(#f0efeb, 5)
-$third-color: #d24d57
+//$third-color: #d24d57
+//$fourth-color: #0d1a1a
+//$fifth-color: #162b2b
+
+
+//$third-color: #dc5651
+//$fourth-color: #0C1117
+//$fifth-color: #768b98
+//
+//$third-color: #F24C00
+//$fourth-color: #485696
+//$fifth-color: #E7E7E7
+
+//$third-color: #513e5c
+//$fourth-color: #02334a
+//$fifth-color: #a9bcc6
+
+
+$third-color: #ac3f37
+$fourth-color: #070c17
+$fifth-color: #91aabf
 
 body
   background-color: $third-color
 
 // Override ant-design default colors
+
+
+.ant-table
+  background-color: lighten($fifth-color, 10)
+  thead.ant-table-thead tr > th
+    background-color: lighten($fourth-color, 10)
+
 .ant-btn
   color: $third-color
+  background-color: $fourth-color
 
   &:hover
-    color: lighten($third-color, 10)
+    color: $third-color
+    background-color: lighten($fourth-color, 10)
     border-color: $third-color
 
+
 .ant-btn-primary
-  color: white
-  background-color: $third-color
+  color: $fourth-color
+  background-color:  $third-color
   border-color: $third-color
 
   &:hover
-    color: white
+    color: $fourth-color
     background-color: lighten($third-color, 10)
-    border-color: $third-color
+    border-color: $fourth-color
 
 .ant-pagination-item-active
   border-color: $third-color
-
   a
     color: $third-color
 
@@ -56,11 +85,16 @@ body
   margin: 10px
 
 .ant-layout-content
-  background: adjust_hue(lighten($second-color, 15), 10)
+  //background: adjust_hue(lighten($second-color, 15), 10)
+  background: $fifth-color
+
 
 .ant-layout-footer
   background: $third-color
   text-align: right
+
+.ant-layout-sider
+  background: $fourth-color
 
 .ant-layout-header
   position: fixed

@@ -66,7 +66,7 @@ const FarmerTable = () => {
     }, [getDefaultCountryFarmers]);
 
     return (
-        <Table className="farmer-table" bordered columns={columns} dataSource={farmers} />
+        <Table className="farmer-table" columns={columns} dataSource={farmers} />
     );
 };
 

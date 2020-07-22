@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Card, Progress } from 'antd';
+import { Progress } from 'antd';
 import _ from 'lodash';
 import { RoadsStoreContext } from './RoadsStore';
 import './RoadStatus.sass';
