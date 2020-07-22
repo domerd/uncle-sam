@@ -8,12 +8,10 @@ $main-color: #f0efeb
 $second-color: lighten(#f0efeb, 5)
 $third-color: #d24d57
 
-.body
-  background-color: red
-
 // Override ant-design default colors
 .ant-btn
   color: $third-color
+
   &:hover
     color: lighten($third-color, 10)
     border-color: $third-color
@@ -22,6 +20,7 @@ $third-color: #d24d57
   color: white
   background-color: $third-color
   border-color: $third-color
+
   &:hover
     color: white
     background-color: lighten($third-color, 10)
@@ -29,11 +28,13 @@ $third-color: #d24d57
 
 .ant-pagination-item-active
   border-color: $third-color
+
   a
     color: $third-color
 
   &:hover
     border-color: darken($third-color, 10)
+
     a
       color: darken($third-color, 10)
 
@@ -50,8 +51,19 @@ $third-color: #d24d57
   align-self: center
   margin: 3rem
 
+.Team-logo
+  height: 4vmin
+  width: 4vmin
+  pointer-events: none
+  align-self: center
+  margin: 10px
+
 .ant-layout-content
   background: adjust_hue(lighten($second-color, 15), 10)
+
+.ant-layout-footer
+  background: $third-color
+  text-align: right
 
 .ant-layout-header
   display: flex

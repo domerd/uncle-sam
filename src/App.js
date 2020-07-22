@@ -94,6 +94,10 @@ const App = () => {
                                     </FarmerStore>
 
                                 </Layout.Content>
+                                <Layout.Footer>
+                                    By spice
+                                    <img src="/farmer.png" className="Team-logo" alt="spice logo" />
+                                </Layout.Footer>
                             </CountryStore>
                         </UserStore>
                     </Layout>
