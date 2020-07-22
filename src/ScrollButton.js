@@ -5,8 +5,9 @@ import './HomePage.sass';
 import { ArrowDownOutlined } from '@ant-design/icons';
 
 const ScrollButton = ({ executeScroll }) => (
-    <button type="text" className="cta" onClick={executeScroll}>
-        <span>See JSON</span>
+    <button type="text" className="btn" onClick={executeScroll}>
+        <span>Watch JSON</span>
+        <span>{' '}</span>
         <ArrowDownOutlined id="icon" />
     </button>
 );
