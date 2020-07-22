@@ -20,7 +20,7 @@ import FarmerStore from './FarmerStore';
 import AdjacencyListStore from './AdjacencyListStore';
 import ResultStore from './ResultStore';
 import ConfigCountryModal from './ConfigCountryModal';
-import CountryHeader from './CountryHeader';
+import CountrySelect from './CountrySelect';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -77,9 +77,11 @@ const App = () => {
                             <CountryStore>
                                 <Layout.Header>
                                     <img src="/lester_white_logo.png" className="header-logo" alt="logo" />
-                                    <CountryHeader />
-                                    {/* <ConfigCountryModal /> */}
-                                    <LogOff />
+                                    <ConfigCountryModal />
+                                    <div className="header-options">
+                                        <CountrySelect />
+                                        <LogOff />
+                                    </div>
                                 </Layout.Header>
                                 <Layout.Content>
                                     <FarmerStore>
