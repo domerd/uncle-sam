@@ -1,5 +1,10 @@
 @import "src/App"
 
 .road-status-section
-  flex: 1
   overflow: auto
+  height: 400px
+  -ms-overflow-style: none  // IE and Edge
+  scrollbar-width: none  // Firefox
+
+.road-status-section::-webkit-scrollbar // Chrome
+    display: none

@@ -5,6 +5,7 @@
 import React, { useRef } from 'react';
 
 import './HomePage.sass';
+import { Layout } from 'antd';
 import FarmerTable from './FarmerTable';
 import RoadStatusSection from './Roads/RoadStatusSection';
 import ResultJson from './ResultJson';
@@ -122,11 +123,19 @@ const HomePage = () => {
 
     return (
         <div className="homepage">
-            <div className="row country-container">
-                <FarmerTable />
-                <RoadStatusSection />
+            <div className="row">
+                <Layout>
+                    <Layout.Content>
+                        <div className="country-container">
+                            <FarmerTable />
+                        </div>
+                        <ScrollButton executeScroll={executeScroll} />
+                    </Layout.Content>
+                    <Layout.Sider width="20rem">
+                        <RoadStatusSection />
+                    </Layout.Sider>
+                </Layout>
             </div>
-            <ScrollButton executeScroll={executeScroll} />
 
             <div className="row red">
                 <MySep />

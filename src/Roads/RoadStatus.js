@@ -37,6 +37,7 @@ const RoadStatus = () => {
                             percent={percentage}
                             strokeColor={color}
                             status={percentage >= FULL_WEIGHT && 'exception'}
+                            format={(percent) => <p style={{ fontSize: 15 }}>{`${percent}%`}</p>}
                         />
                         <p className="road-status-weight">
                             {`${getRoadWeight(road.name)} / ${road.max_weight} Kg`}
