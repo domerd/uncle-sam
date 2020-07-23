@@ -16,7 +16,7 @@ const HomePage = () => {
     return (
         <div className="homepage">
             <div className="row">
-                <Layout>
+                <Layout className="main-section">
                     <Layout.Content>
                         <div className="country-container">
                             <FarmerTable />
