@@ -121,8 +121,8 @@ s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"
 );
 
 const HomePage = () => {
-    const myRef = useRef(null);
-    const executeScroll = () => scrollToRef(myRef);
+    const jsonResultRef = useRef(null);
+    const executeScroll = () => scrollToRef(jsonResultRef);
 
     return (
         <div className="homepage">
@@ -143,7 +143,8 @@ const HomePage = () => {
             <div className="row red">
                 <MySep />
             </div>
-            <div className="result-json-container row" ref={myRef}>
+            <span ref={jsonResultRef} />
+            <div className="result-json-container row">
                 <ResultJson />
             </div>
         </div>
