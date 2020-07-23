@@ -1,4 +1,5 @@
-$third-color: #fa236e //#f94f8a
+$third-color: #fa236e
+//#f94f8a
 $fourth-color: #070c17
 $fifth-color: #91aabf
 
@@ -27,8 +28,9 @@ body
   &:hover, &:focus
     background-color: lighten($fifth-color, 10)
     border-color: $fourth-color
+
     a
-      color:  $fourth-color
+      color: $fourth-color
 
 
 .ant-pagination-item-link
@@ -86,16 +88,13 @@ body
   align-self: center
   margin: 10px
 
+.ant-layout
+  background: inherit
+
 .ant-layout-content
+  background-color: unset
   height: 100%
 //  background: $fifth-color
-
-
-.ant-layout-footer
-  background-color: $third-color
-  text-align: right
-  height: 4rem
-  padding: .2rem .2rem
 
 .ant-layout-sider
   background: inherit
@@ -112,7 +111,8 @@ body
     top: -25px
     bottom: 0
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05)
-    filter: blur(10px)
+    //filter: blur(10px)
+    backdrop-filter: blur(10px)
 
 
 .ant-layout-header
@@ -127,7 +127,6 @@ body
 
 
   .log-off-button
-    //background: $second-color
     color: $third-color
 
     &:hover
@@ -151,13 +150,14 @@ body
   height: 40px
 
 
-.main-row
-  background-repeat: no-repeat
-  background-attachment: fixed
-  background-size: cover
-  background-position: top
-  background-image: url('/background.jpg')
-  height: 550px
+//.main-row
+  //background-repeat: no-repeat
+  //background-attachment: fixed
+  //background-size: cover
+  //background-position: top
+  //background-image: url('/background.jpg')
+  //background-color: transparent
+  //height: inherit
 
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector, .ant-input
   background-color: inherit
