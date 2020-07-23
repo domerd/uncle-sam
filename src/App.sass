@@ -61,6 +61,11 @@ body
     background-color: lighten($third-color, 10)
     border-color: $fourth-color
 
+  &:focus
+    color: $fourth-color
+    background-color: $third-color
+    border-color: $third-color
+
 .ant-pagination-item-active
   border-color: $third-color
 
@@ -99,11 +104,12 @@ body
 
 
 .ant-layout-footer
-  background: $third-color
+  background-color: $third-color
   text-align: right
+  height: 4rem
+  padding: .2rem .2rem
 
 .ant-layout-sider
-  //background: $fourth-color
   background: inherit
   border-radius: 2px
   overflow: hidden
@@ -126,11 +132,7 @@ body
   width: 100%
   z-index: 3
   display: flex
-  //background-image: url("/highway.png")
-  //background-repeat: no-repeat
-  //background-size: cover
   background-color: black
-  //fil
   border-bottom: .2em solid $third-color
   align-items: center
   padding: 0 1rem
@@ -167,7 +169,6 @@ body
   background-size: cover
   background-position: top
   //background-image: url(http://bit.ly/2gPLxZ4)
-  background-image: url('/background6.jpg')
-
-  width: 100%
-  height: 100%
+  background-image: url('/background.jpg')
+  //width: 100%
+  height: 550px
