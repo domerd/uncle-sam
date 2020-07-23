@@ -9,7 +9,6 @@ body
 
 // Override ant-design default colors
 
-
 .ant-table
   background-color: transparentize($fifth-color, .5)
   color: white
@@ -19,28 +18,25 @@ body
     background-color: transparentize($fifth-color, .5)
 
 .ant-pagination-item-active
-  background-color: $fourth-color
-  color: $third-color
+  background-color: $fifth-color
   border-color: white
 
   a
-    color: $third-color
+    color: white
 
   &:hover, &:focus
-    background-color: lighten($fourth-color, 10)
-    border-color: $third-color
+    background-color: lighten($fifth-color, 10)
+    border-color: $fourth-color
     a
-      color: $third-color
+      color:  $fourth-color
 
 
 .ant-pagination-item-link
   &:disabled
-    background-color: $fourth-color
-    color: $third-color
+    background-color: $fifth-color
 
   &:hover
-    background-color: $fourth-color
-    color: $third-color
+    background-color: lighten($fifth-color, 10)
 
 
 .ant-btn
@@ -56,7 +52,8 @@ body
 .ant-btn-primary
   color: $fourth-color
   background-color: $third-color
-  border-color: $third-color
+  //border-color: $third-color
+  border-color: $fourth-color
 
   &:hover
     color: $fourth-color
