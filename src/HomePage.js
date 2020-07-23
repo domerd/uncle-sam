@@ -32,10 +32,10 @@ const HomePage = () => {
             <div className="result-json-container row">
                 <ResultJson />
             </div>
-            <div className="team-credit">
-                By
-                <img src="/farmer.png" className="Team-logo" alt="spice logo" />
-            </div>
+            {/* <div className="team-credit"> */}
+            {/*    By */}
+            {/*    <img src="/farmer.png" className="Team-logo" alt="spice logo" /> */}
+            {/* </div> */}
 
         </div>
 
