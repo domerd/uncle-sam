@@ -34,16 +34,43 @@ body
 .ant-table
   //background-color: lighten($fifth-color, 10)
   background-color: transparentize($fifth-color, .5)
+  color: white
   //background-color: transparent
   //filter: blur(10px)
   //backdrop-filter: blur(10px)
 
   thead.ant-table-thead tr > th
+    color: white
+    background-color: transparentize($fifth-color, .5)
+
+.ant-pagination-item-active
+  background-color: $fourth-color
+  color: $third-color
+  border-color: white
+
+  a
+    color: $third-color
+
+  &:hover, &:focus
     background-color: lighten($fourth-color, 10)
+    border-color: $third-color
+    a
+      color: $third-color
+
+
+.ant-pagination-item-link
+  &:disabled
+    background-color: $fourth-color
+    color: $third-color
+
+  &:hover
+    background-color: $fourth-color
+    color: $third-color
+
 
 .ant-btn
-  color: $third-color
   background-color: $fourth-color
+  color: $third-color
 
   &:hover
     color: $third-color
@@ -66,17 +93,6 @@ body
     background-color: $third-color
     border-color: $third-color
 
-.ant-pagination-item-active
-  border-color: $third-color
-
-  a
-    color: $third-color
-
-  &:hover
-    border-color: darken($third-color, 10)
-
-    a
-      color: darken($third-color, 10)
 
 #root
   height: 100%

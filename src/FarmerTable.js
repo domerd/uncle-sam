@@ -15,6 +15,7 @@ const FarmerTable = () => {
             title: 'ID',
             dataIndex: 'id',
             key: 'id',
+            width: '1rem',
         },
         {
             title: 'Delivery Name',
