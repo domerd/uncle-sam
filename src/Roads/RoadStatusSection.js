@@ -8,8 +8,8 @@ const RoadStatusSection = () => (
     <div>
         <div className="road-status-section">
             <RoadStatus />
+            <AddTollRoad />
         </div>
-        <AddTollRoad />
     </div>
 
 );

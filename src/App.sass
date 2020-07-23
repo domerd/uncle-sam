@@ -18,7 +18,8 @@ $second-color: lighten(#f0efeb, 5)
 //$fifth-color: #a9bcc6
 
 
-$third-color: #ac3f37
+//$third-color: #ac3f37
+$third-color: #94295b
 $fourth-color: #070c17
 $fifth-color: #91aabf
 
@@ -31,7 +32,12 @@ body
 
 
 .ant-table
-  background-color: lighten($fifth-color, 10)
+  //background-color: lighten($fifth-color, 10)
+  background-color: transparentize($fifth-color, .5)
+  //background-color: transparent
+  //filter: blur(10px)
+  //backdrop-filter: blur(10px)
+
   thead.ant-table-thead tr > th
     background-color: lighten($fourth-color, 10)
 
@@ -88,8 +94,8 @@ body
   margin: 10px
 
 .ant-layout-content
-  //background: adjust_hue(lighten($second-color, 15), 10)
-  background: $fifth-color
+  height: 100%
+//  background: $fifth-color
 
 
 .ant-layout-footer
@@ -97,16 +103,34 @@ body
   text-align: right
 
 .ant-layout-sider
-  background: $fourth-color
+  //background: $fourth-color
+  background: inherit
+  border-radius: 2px
+  overflow: hidden
+
+  &:after
+    content: ''
+
+    background: inherit
+    position: absolute
+    left: -25px
+    right: 0
+    top: -25px
+    bottom: 0
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05)
+    filter: blur(10px)
+
 
 .ant-layout-header
   position: fixed
   width: 100%
   z-index: 3
   display: flex
-  background-image: url("/highway.png")
-  background-repeat: no-repeat
-  background-size: cover
+  //background-image: url("/highway.png")
+  //background-repeat: no-repeat
+  //background-size: cover
+  background-color: black
+  //fil
   border-bottom: .2em solid $third-color
   align-items: center
   padding: 0 1rem
@@ -135,3 +159,15 @@ body
 
 .header-logo
   height: 40px
+
+
+.main-row
+  background-repeat: no-repeat
+  background-attachment: fixed
+  background-size: cover
+  background-position: top
+  //background-image: url(http://bit.ly/2gPLxZ4)
+  background-image: url('/background6.jpg')
+
+  width: 100%
+  height: 100%

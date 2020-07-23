@@ -1,11 +1,17 @@
 @import "src/App"
 
 .road-status-section
+  position: relative
+  z-index: 1
+
+.road-status-container
   overflow: auto
   height: 400px
+  padding: 0 .5rem
   margin-top: 1rem
+
   -ms-overflow-style: none  // IE and Edge
   scrollbar-width: none  // Firefox
 
-.road-status-section::-webkit-scrollbar // Chrome
+.road-status-container::-webkit-scrollbar // Chrome
     display: none
