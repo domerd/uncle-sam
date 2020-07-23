@@ -1,7 +1,3 @@
-/**
- * Created by omerdoron on 16/07/2020.
- */
-
 import React, { useEffect, useContext, useState } from 'react';
 import _ from 'lodash';
 import { Select } from 'antd';

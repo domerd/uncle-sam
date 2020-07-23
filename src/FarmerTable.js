@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Input, Table } from 'antd';
+import { Input, Table } from 'antd';
 import './FarmerTable.sass';
 import { FarmerStoreContext } from './FarmerStore';
 import PathForm from './PathForm';
