@@ -11,6 +11,7 @@ const CountrySelect = () => {
 
     return (
         <Select
+            className="country-selector"
             defaultValue={defaultCountry}
             placeholder="Select country"
             onChange={(value) => setDefaultCountry(value)}
