@@ -10,6 +10,8 @@ const ResultJson = () => {
         <ReactJson
             name="Result"
             theme="monokai"
+            displayDataTypes={false}
+            displayObjectSize={false}
             src={result}
         />
 
