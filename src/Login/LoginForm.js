@@ -25,7 +25,7 @@ const LoginForm = ({ onLoginSuccess }) => {
                 <Input placeholder="Username" />
             </Form.Item>
             <Form.Item name="password" rules={[{ required: true, message: 'Please fill in your Password!' }]}>
-                <Input placeholder="Password" />
+                <Input placeholder="Password" type="password" />
             </Form.Item>
             <Button onClick={submit}>
                 Login!

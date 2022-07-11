@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-    Button, Form, Modal, Select,
+    Button, Form, Modal, Popover, Select,
 } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
+import './ConfigCountryModal.sass';
 import _ from 'lodash';
 import { UserStoreContext } from './UserStore';
 import { CountryStoreContext } from './CountryStore';
 
-const ConfigModal = () => {
+const ConfigCountryModal = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const { defaultCountry, setDefaultCountry } = useContext(UserStoreContext);
     const { countries } = useContext(CountryStoreContext);
@@ -29,7 +30,7 @@ const ConfigModal = () => {
 
     return (
         <>
-            <Button className="config-modal-button" icon={<SettingOutlined />} onClick={openModal} />
+            <Button id="config-modal-button" shape="circle" icon={<SettingOutlined />} onClick={openModal} />
             {modalOpen && (
                 <Modal
                     visible
@@ -57,4 +58,4 @@ const ConfigModal = () => {
     );
 };
 
-export default ConfigModal;
+export default ConfigCountryModal;

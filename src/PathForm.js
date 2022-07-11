@@ -42,9 +42,11 @@ const PathForm = ({ sourceFarmer, deliveryId }) => {
             setResult(newResult);
         } else {
             setHomeEnding(false);
-            const newResult = { ...result };
-            delete newResult[deliveryId];
-            setResult(newResult);
+            if (result[deliveryId]) {
+                const newResult = { ...result };
+                delete newResult[deliveryId].pathRoads;
+                setResult(newResult);
+            }
         }
     }, [pathRoads]);
 
